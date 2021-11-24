@@ -9,3 +9,9 @@ import streamlit as st
 # Made by Mihaela-Elena Nistor, Viktor Anzhelev Tsanev and Jacob Kofod
 
 """
+
+# Read characters from CSV
+characters_path = "nodes.csv"
+df_characters = pd.read_csv(characters_path)
+
+print(df_characters)
