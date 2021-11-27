@@ -69,7 +69,7 @@ G.add_edges_from(friends_links)
 # ====
 
 # Read words for characters from CSV
-wordlistPath = "characterwords.txt"
+wordlistPath = "characterwords.csv"
 df_wordlist = pd.read_csv(wordlistPath)
 
 colormapList = [
