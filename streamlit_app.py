@@ -71,6 +71,10 @@ numberOfEdges = len(G.edges())
 t = "The network has " + str(numberOfNodes) + " nodes and " + str(numberOfEdges) + " edges."
 st.text(t)
 
+# Gigant connected 
+largest_cc = max(nx.connected_components(G), key=len)
+GCC = G.subgraph(largest_cc)
+
 #### Degree distribution
 
 st.header('Degree distributions')
@@ -126,20 +130,16 @@ for champion_row in df_wordlist.iterrows():
     st.pyplot(plt)
 
 
-
-
 ######
 # Plot network
 
 st.header('Graph drawing')
 
-largest_cc = max(nx.connected_components(G), key=len)
-GCC = G.subgraph(largest_cc)
-
 colors = []
 for node in list(GCC.nodes()):
     if node == 'Ross Geller':
         colors.append("#00009E")
+        st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
     elif node == 'Chandler Bing':
         colors.append("#FFF580")
     elif node == 'Joey Tribbiani':
