@@ -121,6 +121,8 @@ st.pyplot(plt)
 ######
 # Plot network
 
+st.header('Graph drawing')
+
 largest_cc = max(nx.connected_components(G), key=len)
 GCC = G.subgraph(largest_cc)
 
