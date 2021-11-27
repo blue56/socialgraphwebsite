@@ -69,7 +69,7 @@ G.add_edges_from(friends_links)
 numberOfNodes = len(G.nodes())
 numberOfEdges = len(G.edges())
 
-t = str("The network has ", numberOfNodes, " nodes and ", numberOfEdges, " edges.")
+t = "The network has " + str(numberOfNodes) + " nodes and " + str(numberOfEdges) + " edges."
 st.text(t) 
 
 # ==== Word clouds
