@@ -29,14 +29,9 @@ from matplotlib.pyplot import figure
 
 """
 
-# Create a text element and let the reader know the data is loading.
-data_load_state = st.text('Loading data...')
-
 # Read characters from CSV
 characters_path = "nodes.csv"
 df_characters = pd.read_csv(characters_path)
-
-data_load_state.text('Loading data...done!')
 
 # ====
 # Create undirected graph
@@ -45,8 +40,6 @@ G = nx.Graph()
 # Read nodes from csv given as part of the exercises
 path_nodes = "nodes.csv"
 df_nodes = pd.read_csv(path_nodes)
-
-#print(df_nodes)
 
 # Add nodes to the graph
 for index, character in df_nodes.iterrows():
