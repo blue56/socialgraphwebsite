@@ -94,3 +94,4 @@ for champion_row in df_wordlist.iterrows():
     plt.axis("off")
     plt.title(champion,fontsize=15)
     plt.show()
+    st.pyplot()
