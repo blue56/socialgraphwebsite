@@ -164,11 +164,11 @@ for edge in list(GCC.edges()):
 
 forceatlas2 = ForceAtlas2(outboundAttractionDistribution=False,edgeWeightInfluence=1.5,jitterTolerance=0.1,
 barnesHutOptimize=True,barnesHutTheta=1,scalingRatio=1.,strongGravityMode=False,gravity=0.1,verbose=True)
-figure(figsize=(20, 20), dpi=320)
+gf = figure(figsize=(20, 20), dpi=320)
 
 positions = forceatlas2.forceatlas2_networkx_layout(G,pos=None,iterations=200)
 
 nx.draw_networkx_nodes(GCC,positions,node_color=colors,node_size=[v*3 for v in dict(GCC.degree()).values()])
 nx.draw_networkx_edges(GCC,positions,edge_color=edge_color)
 
-st.pyplot()
+st.pyplot(gf)
