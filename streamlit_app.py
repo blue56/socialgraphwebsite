@@ -134,22 +134,26 @@ for champion_row in df_wordlist.iterrows():
 # Plot network
 
 st.header('Graph drawing')
-st.markdown(f'<p style="color:#00009E;font-size:24px;border-radius:2%;">' + "Ross Geller" + '</p>', unsafe_allow_html=True)
-st.markdown(f'<p style="color:#FFF580;font-size:24px;border-radius:2%;">' + "Chandler Bing" + '</p>', unsafe_allow_html=True)
+#st.markdown(f'<p style="color:#00009E;font-size:24px;border-radius:2%;">' + "Ross Geller" + '</p>', unsafe_allow_html=True)
+#st.markdown(f'<p style="color:#FFF580;font-size:24px;border-radius:2%;">' + "Chandler Bing" + '</p>', unsafe_allow_html=True)
+
+val_map = {'Ross': 1,'Chandler': 2,'Joey': 3,'Phoebe': 4,'Monica':5,'Rachel': 6}
+#I had this list for the name corresponding t the color but different from the node name
+ColorLegend = {'Ross': 1,'Chandler': 2,'Joey': 3,'Phoebe': 4,'Monica':5,'Rachel': 6}
 
 colors = []
 for node in list(GCC.nodes()):
     if node == 'Ross':
         colors.append("#00009E")
-    elif node == 'Chandler Bing':
+    elif node == 'Chandler':
         colors.append("#FFF580")
-    elif node == 'Joey Tribbiani':
+    elif node == 'Joey':
         colors.append("#9A0006")
-    elif node == 'Phoebe Buffay':
+    elif node == 'Phoebe':
         colors.append("#42A2D6")
-    elif node == 'Rachel Greene':
+    elif node == 'Rachel':
         colors.append("#FFDC00")
-    elif node =='Monica Geller':
+    elif node =='Monica':
         colors.append("#FF4238")
     else:
         colors.append("#196F3D")
@@ -178,6 +182,10 @@ for edge in list(GCC.edges()):
 forceatlas2 = ForceAtlas2(outboundAttractionDistribution=False,edgeWeightInfluence=1.5,jitterTolerance=0.1,
 barnesHutOptimize=True,barnesHutTheta=1,scalingRatio=1.,strongGravityMode=False,gravity=0.1,verbose=True)
 gf = figure(figsize=(20, 20), dpi=320)
+
+ax = gf.add_subplot(1,1,1)
+for label in ColorLegend:
+    ax.plot([0],[0],color="#FFF580",label=label)
 
 positions = forceatlas2.forceatlas2_networkx_layout(G,pos=None,iterations=200)
 
