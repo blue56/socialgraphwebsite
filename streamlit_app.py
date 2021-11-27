@@ -65,6 +65,10 @@ df_episodes = pd.read_csv(path_episodes)
 friends_links = list(zip(df_edges.From, df_edges.To))
 G.add_edges_from(friends_links)
 
+# === Video
+st.header('Introduction video')
+st.video('https://youtu.be/_qKCQAbOt_8')
+
 # === Basic stats
 st.header('Basic stats')
 
