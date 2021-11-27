@@ -194,6 +194,6 @@ nx.draw_networkx_edges(GCC,positions,edge_color=edge_color)
 
 plt.legend()
 
-gf.tight_layout()
+gf.tight_layout(prop={'size': 10})
 
 st.pyplot(gf)
