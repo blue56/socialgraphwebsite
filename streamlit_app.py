@@ -99,21 +99,6 @@ for champion_row in df_wordlist.iterrows():
 
 st.header('Degree distributions')
 
-#get all sentiment values 
-degrees = [i[1] for i in list(G.degree)]
-# get hist values and edges 
-hist, bin_edges = np.histogram(degrees)
 
-figure(figsize=(12, 10), dpi=80)
-n, bins, patches = plt.hist(x=degrees, bins='auto', color='#0504aa',
-                            alpha=0.7, rwidth=0.85)
-plt.grid(axis='y', alpha=0.75)
-plt.xlabel('Degree',fontsize=15)
-plt.ylabel('Frequency',fontsize=15)
-plt.title('$\it{F}$•$\it{R}$•$\it{I}$•$\it{E}$•$\it{N}$•$\it{D}$•$\it{S}$ - Degree Distribution',fontsize=18)
-maxfreq = n.max()
-# Set a clean upper y-axis limit.
-plt.xticks(np.arange(min(degrees), max(degrees)+1, 10))
-plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
 
 #st.pyplot(plt)
