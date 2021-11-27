@@ -64,7 +64,33 @@ df_edges = pd.read_csv(path_edges)
 path_episodes = "episodes.csv"
 df_episodes = pd.read_csv(path_episodes)
 
-#H.add_nodes_from(list_of_characters)
 friends_links = list(zip(df_edges.From, df_edges.To))
 G.add_edges_from(friends_links)
 # ====
+
+# Read words for characters from CSV
+wordlistPath = "characterwords.txt"
+df_wordlist = pd.read_csv(wordlistPath)
+
+colormapList = [
+        'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds',
+        'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu',
+        'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn']
+
+for champion_row in df_wordlist.iterrows():
+    
+    champion = champion_row[1][0]
+    wordcloud_string = champion_row[1][1]
+
+    # Create and generate a word cloud image:
+    colormap = random.choice(colormapList)
+    wordcloud = WordCloud(width=1000, height=1000, background_color='white', colormap=colormap).generate(wordcloud_string)
+    wordcloud.collocations = False
+
+    # Display the generated image:
+    plt.figure( figsize=(15,7))
+    plt.tight_layout(pad=0)
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    plt.title(champion,fontsize=15)
+    plt.show()
