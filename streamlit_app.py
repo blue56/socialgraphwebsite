@@ -134,12 +134,12 @@ for champion_row in df_wordlist.iterrows():
 # Plot network
 
 st.header('Graph drawing')
-st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
-st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
+st.markdown(f'<p style="color:#00009E;font-size:24px;border-radius:2%;">' + "Ross Geller" + '</p>', unsafe_allow_html=True)
+st.markdown(f'<p style="color:#FFF580;font-size:24px;border-radius:2%;">' + "Chandler Bing" + '</p>', unsafe_allow_html=True)
 
 colors = []
 for node in list(GCC.nodes()):
-    if node == 'Ross Geller':
+    if node == 'Ross':
         colors.append("#00009E")
     elif node == 'Chandler Bing':
         colors.append("#FFF580")
