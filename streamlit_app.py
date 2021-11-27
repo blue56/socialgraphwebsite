@@ -66,6 +66,8 @@ friends_links = list(zip(df_edges.From, df_edges.To))
 G.add_edges_from(friends_links)
 # ====
 
+st.header('Word cloud drawings')
+
 # Read words for characters from CSV
 wordlistPath = "characterwords.csv"
 df_wordlist = pd.read_csv(wordlistPath)
