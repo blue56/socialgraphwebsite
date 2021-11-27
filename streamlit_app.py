@@ -11,7 +11,6 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
-import nltk
 from os import listdir
 from os.path import isfile, join
 from wordcloud import WordCloud
@@ -21,22 +20,7 @@ import community as com
 import os
 from fa2 import ForceAtlas2
 from matplotlib.pyplot import figure
-import powerlaw
-import networkx.algorithms.community as nx_comm
-import community as community_louvain
-import json
-import collections
-from nltk.tokenize import sent_tokenize,word_tokenize, RegexpTokenizer 
-from labMTsimple.storyLab import emotionFileReader, emotion, stopper, emotionV
-from nltk.stem import WordNetLemmatizer 
-from nltk.corpus import stopwords
-from nltk.stem import PorterStemmer
-from nltk.tokenize import word_tokenize
-import re
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import itertools
-import urllib
-import imdb
+
 # ===
 
 """

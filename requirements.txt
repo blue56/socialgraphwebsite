@@ -7,3 +7,4 @@ nltk
 wordcloud
 community
 fa2
+powerlaw
