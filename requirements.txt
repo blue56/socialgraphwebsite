@@ -5,3 +5,4 @@ networkx
 matplotlib
 nltk
 wordcloud
+community
