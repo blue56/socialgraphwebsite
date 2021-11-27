@@ -64,8 +64,15 @@ df_episodes = pd.read_csv(path_episodes)
 
 friends_links = list(zip(df_edges.From, df_edges.To))
 G.add_edges_from(friends_links)
-# ====
 
+# === Basic stats
+numberOfNodes = len(G.nodes())
+numberOfEdges = len(G.edges())
+
+t = "The network has ", numberOfNodes, " nodes and ", numberOfEdges, " edges."
+st.text_area(t) 
+
+# ==== Word clouds
 st.header('Word cloud drawings')
 
 # Read words for characters from CSV
