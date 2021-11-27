@@ -116,4 +116,4 @@ maxfreq = n.max()
 plt.xticks(np.arange(min(degrees), max(degrees)+1, 10))
 plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
 
-st.pyplot(plt)
+#st.pyplot(plt)
