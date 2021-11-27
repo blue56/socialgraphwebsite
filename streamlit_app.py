@@ -70,7 +70,7 @@ numberOfNodes = len(G.nodes())
 numberOfEdges = len(G.edges())
 
 t = "The network has ", numberOfNodes, " nodes and ", numberOfEdges, " edges."
-st.text_area(t) 
+st.text(t) 
 
 # ==== Word clouds
 st.header('Word cloud drawings')
