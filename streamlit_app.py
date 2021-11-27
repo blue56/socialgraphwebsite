@@ -117,3 +117,58 @@ plt.xticks(np.arange(min(degrees), max(degrees)+1, 10))
 plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
 
 st.pyplot(plt)
+
+######
+# Plot network
+
+largest_cc = max(nx.connected_components(G), key=len)
+GCC = G.subgraph(largest_cc)
+
+colors = []
+for node in list(GCC.nodes()):
+    if node == 'Ross Geller':
+        colors.append("#00009E")
+    elif node == 'Chandler Bing':
+        colors.append("#FFF580")
+    elif node == 'Joey Tribbiani':
+        colors.append("#9A0006")
+    elif node == 'Phoebe Buffay':
+        colors.append("#42A2D6")
+    elif node == 'Rachel Greene':
+        colors.append("#FFDC00")
+    elif node =='Monica Geller':
+        colors.append("#FF4238")
+    else:
+        colors.append("#196F3D")
+
+
+edge_color = []
+for edge in list(GCC.edges()):
+    
+    a = edge[0]
+    b = edge[1]
+    if ('Chandler' in a) or ('Chandler' in b):
+        edge_color.append("#FFF580")
+    elif ('Monica' in a) or ('Monica' in b):
+        edge_color.append("#FF4238")
+    elif ('Rachel' in a) or ('Rachel' in b):
+        edge_color.append("#FFDC00")
+    elif ('Phoebe' in a) or ('Phoebe' in b):
+        edge_color.append("#42A2D6")
+    elif ('Ross' in a) or ('Ross' in b):
+        edge_color.append("#00009E")
+    elif ('Joey' in a) or ('Joey' in b):
+        edge_color.append("#9A0006")
+    else:
+        edge_color.append("#9B59B6")
+
+forceatlas2 = ForceAtlas2(outboundAttractionDistribution=False,edgeWeightInfluence=1.5,jitterTolerance=0.1,
+barnesHutOptimize=True,barnesHutTheta=1,scalingRatio=1.,strongGravityMode=False,gravity=0.1,verbose=True)
+figure(figsize=(20, 20), dpi=320)
+
+positions = forceatlas2.forceatlas2_networkx_layout(G,pos=None,iterations=200)
+
+nx.draw_networkx_nodes(GCC,positions,node_color=colors,node_size=[v*3 for v in dict(GCC.degree()).values()])
+nx.draw_networkx_edges(GCC,positions,edge_color=edge_color)
+
+st.pyplot()
