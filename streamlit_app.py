@@ -66,6 +66,8 @@ friends_links = list(zip(df_edges.From, df_edges.To))
 G.add_edges_from(friends_links)
 
 # === Basic stats
+st.header('Basic stats')
+
 numberOfNodes = len(G.nodes())
 numberOfEdges = len(G.edges())
 
