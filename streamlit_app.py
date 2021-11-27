@@ -134,15 +134,15 @@ for champion_row in df_wordlist.iterrows():
 # Plot network
 
 st.header('Graph drawing')
+st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
+st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
 
 colors = []
 for node in list(GCC.nodes()):
     if node == 'Ross Geller':
         colors.append("#00009E")
-        st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
     elif node == 'Chandler Bing':
         colors.append("#FFF580")
-        st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
     elif node == 'Joey Tribbiani':
         colors.append("#9A0006")
     elif node == 'Phoebe Buffay':
