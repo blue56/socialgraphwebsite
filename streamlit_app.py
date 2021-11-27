@@ -142,6 +142,7 @@ for node in list(GCC.nodes()):
         st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
     elif node == 'Chandler Bing':
         colors.append("#FFF580")
+        st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">' + "JACOB" + '</p>', unsafe_allow_html=True)
     elif node == 'Joey Tribbiani':
         colors.append("#9A0006")
     elif node == 'Phoebe Buffay':
