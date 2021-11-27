@@ -168,7 +168,7 @@ gf = figure(figsize=(20, 20), dpi=320)
 
 positions = forceatlas2.forceatlas2_networkx_layout(G,pos=None,iterations=200)
 
-nx.draw_networkx_nodes(GCC,positions,node_color=colors,node_size=[v*3 for v in dict(GCC.degree()).values()])
+nx.draw_networkx_nodes(GCC,positions,node_color=colors,node_size=[v*10 for v in dict(GCC.degree()).values()])
 nx.draw_networkx_edges(GCC,positions,edge_color=edge_color)
 
 st.pyplot(gf)
