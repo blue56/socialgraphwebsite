@@ -179,20 +179,28 @@ for edge in list(GCC.edges()):
     else:
         edge_color.append("#9B59B6")
 
+legend_colors = ["#FFF580","#FF4238","#FFDC00","#42A2D6","#00009E","#9A0006"]
+
 forceatlas2 = ForceAtlas2(outboundAttractionDistribution=False,edgeWeightInfluence=1.5,jitterTolerance=0.1,
 barnesHutOptimize=True,barnesHutTheta=1,scalingRatio=1.,strongGravityMode=False,gravity=0.1,verbose=True)
 gf = figure(figsize=(20, 20), dpi=320)
 
 ax = gf.add_subplot(1,1,1)
 for label in ColorLegend:
-    ax.plot([0],[0],color="#FFF580",label=label)
+    legend_color = ""
+    if label == "Ross":
+        legend_color = "#00009E"
+    else:
+        legend_color = "#FFF580"
+    
+    ax.plot([0],[0],color=legend_color,label=label)
 
 positions = forceatlas2.forceatlas2_networkx_layout(G,pos=None,iterations=200)
 
 nx.draw_networkx_nodes(GCC,positions,node_color=colors,node_size=[v*10 for v in dict(GCC.degree()).values()])
 nx.draw_networkx_edges(GCC,positions,edge_color=edge_color)
 
-plt.legend(prop={'size': 10})
+plt.legend(prop={'size': 30})
 
 gf.tight_layout()
 
