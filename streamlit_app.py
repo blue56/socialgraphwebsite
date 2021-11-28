@@ -134,12 +134,10 @@ for champion_row in df_wordlist.iterrows():
 # Plot network
 
 st.header('Graph drawing')
-#st.markdown(f'<p style="color:#00009E;font-size:24px;border-radius:2%;">' + "Ross Geller" + '</p>', unsafe_allow_html=True)
-#st.markdown(f'<p style="color:#FFF580;font-size:24px;border-radius:2%;">' + "Chandler Bing" + '</p>', unsafe_allow_html=True)
 
-val_map = {'Ross': 1,'Chandler': 2,'Joey': 3,'Phoebe': 4,'Monica':5,'Rachel': 6}
+val_map = {'Ross': 1,'Chandler': 2,'Joey': 3,'Phoebe': 4,'Monica':5,'Rachel': 6,'Other': 7}
 #I had this list for the name corresponding t the color but different from the node name
-ColorLegend = {'Ross': 1,'Chandler': 2,'Joey': 3,'Phoebe': 4,'Monica':5,'Rachel': 6}
+ColorLegend = {'Ross': 1,'Chandler': 2,'Joey': 3,'Phoebe': 4,'Monica':5,'Rachel': 6,'Other': 7}
 
 colors = []
 for node in list(GCC.nodes()):
@@ -179,7 +177,7 @@ for edge in list(GCC.edges()):
     else:
         edge_color.append("#9B59B6")
 
-legend_colors = ["#FFF580","#FF4238","#FFDC00","#42A2D6","#00009E","#9A0006"]
+#legend_colors = ["#FFF580","#FF4238","#FFDC00","#42A2D6","#00009E","#9A0006"]
 
 forceatlas2 = ForceAtlas2(outboundAttractionDistribution=False,edgeWeightInfluence=1.5,jitterTolerance=0.1,
 barnesHutOptimize=True,barnesHutTheta=1,scalingRatio=1.,strongGravityMode=False,gravity=0.1,verbose=True)
@@ -201,7 +199,7 @@ for label in ColorLegend:
     elif label == "Monica":
         legend_color = "#FF4238"
     else:
-        legend_color = "#FFF580"
+        legend_color = "#9B59B6"
     
     ax.plot([0],[0],color=legend_color,label=label)
 
