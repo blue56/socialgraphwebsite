@@ -190,6 +190,16 @@ for label in ColorLegend:
     legend_color = ""
     if label == "Ross":
         legend_color = "#00009E"
+    elif label == "Chandler":
+        legend_color = "#FFF580"
+    elif label == "Joey":
+        legend_color = "#9A0006"
+    elif label == "Phoebe":
+        legend_color = "#42A2D6"
+    elif label == "Rachel":
+        legend_color = "#FFDC00"
+    elif label == "Monica":
+        legend_color = "#FF4238"
     else:
         legend_color = "#FFF580"
     
