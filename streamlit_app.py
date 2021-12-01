@@ -199,7 +199,7 @@ for label in ColorLegend:
     elif label == "Monica":
         legend_color = "#FF4238"
     else:
-        legend_color = "#9B59B6"
+        legend_color = "#196F3D"
     
     ax.plot([0],[0],color=legend_color,label=label)
 
