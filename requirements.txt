@@ -9,3 +9,4 @@ community
 fa2
 powerlaw
 logic
+plotly
