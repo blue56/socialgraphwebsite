@@ -2,10 +2,11 @@ from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
+import streamlit
 import streamlit as st
 import logic
 # ===
-# Import packages: 
+# Import packages:
 import numpy as np 
 import pandas as pd 
 import networkx as nx
@@ -19,7 +20,7 @@ import community as com
 import os
 from fa2 import ForceAtlas2
 from matplotlib.pyplot import figure
-
+st.set_page_config(page_title="My App",layout='wide')
 # ===
 
 """
@@ -89,3 +90,21 @@ with st.container():
     st.header('Graph drawing')
     st.pyplot(logic.generate_graph(GCC))
 
+###################################################################################################### PLOT NETWORK #########################################################################################################
+episodes_sentiment = pd.read_csv('df_episode_sentiment.csv')
+director_sentiment = pd.read_csv('director_sent_score.csv')
+sentiment_of_pairs = pd.read_csv('sentiment_of_pairs.csv')
+with st.container():
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        col1.header('Sentiment for pairs of characters')
+        logic.create_sentiment_graph(sentiment_of_pairs)
+
+    with col2:
+        col2.header('Sentiment for each director')
+        logic.create_sentiment_graph(director_sentiment)
+
+    st.header('Evolution of sentiment in time')
+    logic.create_sentiment_graph(episodes_sentiment)

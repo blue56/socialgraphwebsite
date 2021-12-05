@@ -1,8 +1,9 @@
 import random
-
+import plotly.express as px
 import networkx as nx
 import numpy as np
 import pandas as pd
+import streamlit
 from fa2 import ForceAtlas2
 from matplotlib import pyplot as plt
 from matplotlib.pyplot import figure
@@ -152,3 +153,18 @@ def generate_graph(GCC):
     gf.tight_layout()
 
     return gf
+
+def create_sentiment_graph(sentiment_df):
+
+    if sentiment_df.columns[1] == 'Directors':
+        fig = px.bar(sentiment_df, x=sentiment_df.columns[1], y=sentiment_df.columns[2])
+
+
+    elif sentiment_df.columns[1] == 'Episodes':
+        fig = px.line(sentiment_df, x=sentiment_df.columns[1], y=sentiment_df.columns[2])
+
+    else:
+        fig = px.bar(sentiment_df, x=sentiment_df.columns[1], y=sentiment_df.columns[2])
+    return streamlit.plotly_chart(fig, use_container_width=True)
+
+
