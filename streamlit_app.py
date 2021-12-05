@@ -4,7 +4,7 @@ import math
 import pandas as pd
 import streamlit
 import streamlit as st
-import logic
+import logic as logic
 # ===
 # Import packages:
 import numpy as np 
