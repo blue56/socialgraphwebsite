@@ -8,3 +8,4 @@ wordcloud
 community
 fa2
 powerlaw
+logic
