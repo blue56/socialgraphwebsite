@@ -163,8 +163,22 @@ def create_sentiment_graph(sentiment_df):
     elif sentiment_df.columns[1] == 'Episodes':
         fig = px.line(sentiment_df, x=sentiment_df.columns[1], y=sentiment_df.columns[2])
 
+    elif sentiment_df.columns[1] == 'Character':
+
+        sentiment_df['colors'] = ''
+        sentiment_df['colors'] = np.where(sentiment_df['Sentiment'] <= -0.05, 'negative', sentiment_df['colors'])
+        sentiment_df['colors'] = np.where(sentiment_df['Sentiment'] >= 0.05, 'positive', sentiment_df['colors'])
+        sentiment_df['colors'] = np.where( ((sentiment_df['Sentiment'] > -0.05) & (sentiment_df['Sentiment'] < 0.05 )), 'neutral', sentiment_df['colors'])
+
+        fig = px.scatter(sentiment_df, x=sentiment_df.columns[1], y=sentiment_df.columns[2], color='colors')
+        for i in range(0,len(sentiment_df['Character'])):
+            if sentiment_df['Character'].iloc[i] in ['Monica', 'Rachel', 'Ross', 'Chandler', 'Joey','Phoebe']:
+                fig.add_annotation(x = sentiment_df.Character.iloc[i], y = sentiment_df.Sentiment.iloc[i],arrowhead=1)
+                #, xref = "x domain", yref = "y", axref = "x domain", ayref = "y", ay = 2, arrowhead = 2)
+
     else:
         fig = px.bar(sentiment_df, x=sentiment_df.columns[1], y=sentiment_df.columns[2])
+
     return streamlit.plotly_chart(fig, use_container_width=True)
 
 
