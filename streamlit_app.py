@@ -89,6 +89,14 @@ with st.container():
 
 ##############################################################################WORDCLOUDS ################################################################################################################################
 
+# Read words for characters from CSV
+wordlistPath = "characterwords.csv"
+df_wordlist = pd.read_csv(wordlistPath)
+
+with st.container():
+
+    st.header('Word cloud drawings')
+
 """
 
 But what is happing at the center of Friends? They are of course talking alot in the Central Perk café.
@@ -98,14 +106,6 @@ has there distinct ways of talking. Below you are able to choose your favorite F
 and see what words makes that character special.
 
 """
-
-# Read words for characters from CSV
-wordlistPath = "characterwords.csv"
-df_wordlist = pd.read_csv(wordlistPath)
-
-with st.container():
-
-    st.header('Word cloud drawings')
 
     ch_selected = st.selectbox('I want to see the wordcloud for:', list(df_wordlist.Name.unique()))
 
