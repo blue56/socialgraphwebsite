@@ -48,7 +48,7 @@ with st.container():
 ###################################################################################### Basic stats###############################################################################################################
 
 """
-###Data story
+## Data story
 
 Friends is all about relationships, but what is actually happening at the Central Perk? What  are the friends talking about? Who does actually have the best relationship in Friends? Let's start to dig into the Friends network and lets see what we can find from a data perspective.
 
