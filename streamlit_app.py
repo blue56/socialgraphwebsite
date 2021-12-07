@@ -127,3 +127,8 @@ with st.container():
 
     st.header('Evolution of sentiment in time')
     logic.create_sentiment_graph(episodes_sentiment)
+#######################################################################################SENTIMENT CHARACTERS###################################################################################################################
+characters_sentiment = pd.read_csv('characters_sentiment.csv')
+with st.container():
+
+    logic.create_sentiment_graph(characters_sentiment)
