@@ -140,7 +140,7 @@ is between Phoebe and Mike. To be more precise, Mike has the most positive senti
 Phoebe. This can be seen in the Sentiment for pair of characters. They have a sentiment score of 0.17 far 
 above the average.
 
-But wait a bit... Mike was dating Precious after he broke up with Phoebe. That most have been a challenge.
+But wait a bit... Mike was dating Precious after he broke up with Phoebe. That must have been a challenge.
 Precious has the most negative sentiment of all characters in Friends. Ouch. Mike must have been on a roller coster ride.
 
 """
