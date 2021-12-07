@@ -93,9 +93,7 @@ with st.container():
 wordlistPath = "characterwords.csv"
 df_wordlist = pd.read_csv(wordlistPath)
 
-with st.container():
-
-    st.header('Word cloud drawings')
+st.header('Word cloud drawings')
 
 """
 
@@ -106,6 +104,8 @@ has there distinct ways of talking. Below you are able to choose your favorite F
 and see what words makes that character special.
 
 """
+
+with st.container():
 
     ch_selected = st.selectbox('I want to see the wordcloud for:', list(df_wordlist.Name.unique()))
 
