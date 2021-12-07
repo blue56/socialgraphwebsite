@@ -122,7 +122,7 @@ the scientist guy, that has to go to Minsk to work. No wonder why Phoebe found D
 David is actually a pretty positive guy, as you can see in the buttom of the page. He has a sentiment score of 0.133, which
 are above the average.
 
-What has Ross and Joey in common. Dude, dude ,dude. Ross and Joey loves to say dude. 
+What has Ross and Joey in common? Dude, dude, dude. Ross and Joey loves to say dude. 
 They say "dude" 62 times in total. 
 
 """
