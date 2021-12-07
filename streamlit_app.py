@@ -133,6 +133,15 @@ with st.container():
     st.header('Graph drawing')
     st.pyplot(logic.generate_graph(GCC))
 
+"""
+
+Back to Phoebe and her relationships. It seems that the best relationship in Friends universe
+is between Phoebe and Mike. To be more precise, Mike has the most positive sentiment when talking about
+Phoebe. This can be seen in the Sentiment for pair of characters. They have a sentiment score of 0.17 far 
+above the average.
+
+"""
+
 ###################################################################################################### PLOT NETWORK #########################################################################################################
 episodes_sentiment = pd.read_csv('df_episode_sentiment.csv')
 director_sentiment = pd.read_csv('director_sent_score.csv')
