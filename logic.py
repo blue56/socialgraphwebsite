@@ -94,7 +94,7 @@ def generate_graph(GCC):
         elif node =='Monica':
             colors.append("#FF4238")
         else:
-            colors.append("#196F3D")
+            colors.append("#9B59B6")
 
 
     edge_color = []
