@@ -75,6 +75,9 @@ with st.container():
 We can identify the 6 main characters just by looking at the network degree distribution.
 The 6 friends has the highest node degrees. In other words, 
 they simple have the highest number of relationship to other characters.
+
+That is expectable for something that is human made. The statistics would look differently if the network was totally random.
+
 """
 
 ##################################################################### Degree distribution############################################################################################################################
@@ -86,6 +89,15 @@ with st.container():
 
 ##############################################################################WORDCLOUDS ################################################################################################################################
 
+"""
+
+But what is happing at the center of Friends? They are of course talking alot in the Central Perk café.
+
+To be precise, the Friends serie has 46657 story lines in total. Each of the 6 friends
+has there distinct ways of talking. Below you are able to choose your favorite Friends character
+and see what words makes that character special.
+
+"""
 
 # Read words for characters from CSV
 wordlistPath = "characterwords.csv"
