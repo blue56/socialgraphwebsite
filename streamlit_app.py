@@ -143,7 +143,7 @@ above the average.
 But wait a bit... Mike was dating Precious after he broke up with Phoebe. That must have been a challenge.
 Precious has the most negative sentiment of all characters in Friends. Ouch. Mike must have been on a roller coster ride.
 
-Speaking about roller coster rides. The Friends newer has also been on a bit of a ride.
+Speaking about roller coster rides. The Friends viewers has also been on a bit of a ride.
 The episode with the lowest overall sentiment was episode 1 in season 4, The one with the Jellyfish as you probarly remember.
 The crazy thing is that in the same season we have one of the highest sentiment scores of a episode. 
 Episode 5 - The one with Joey's new girlfriend.
