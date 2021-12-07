@@ -117,10 +117,13 @@ GCC = G.subgraph(largest_cc)
 
 """
 
-So why are Minsk a special thing for Pheobe? Well that's because her first was David
-the scientist guy, that has to go to Minsk to work. No wunder why Phoebe found David interessting... 
+So why are Minsk a special thing for Pheobe? Well that's because her first love was David
+the scientist guy, that has to go to Minsk to work. No wonder why Phoebe found David interessting... 
 David is actually a pretty positive guy, as you can see in the buttom of the page. He has a sentiment score of 0.133, which
 are above the average.
+
+What has Ross and Joey in common. Dude, dude ,dude. Ross and Joey loves to say dude. 
+They say "dude" 62 times in total. 
 
 """
 
