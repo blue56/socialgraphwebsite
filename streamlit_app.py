@@ -46,6 +46,20 @@ with st.container():
     st.video('https://youtu.be/_qKCQAbOt_8')
 
 ###################################################################################### Basic stats###############################################################################################################
+
+"""
+###Data story
+
+Friends is all about relationships, but what is actually happening at the Central Perk? What  are the friends talking about? Who does actually have the best relationship in Friends? Let's start to dig into the Friends network and lets see what we can find from a data perspective.
+
+First of all we need to have the data available. We have done the hard work for you, so this website has all the needed information avaliable. However if you wish to jump into the data lake yourself then you can find the details here:
+
+[Link to explainer notebook]
+
+Let's take a look at the character network. It consists of 424 characters that are connected by 2183 edges. Each edge represents that the character has some kind of relationship to the other character.
+
+"""
+
 with st.container():
 
 
@@ -57,6 +71,11 @@ with st.container():
     t = "The network has " + str(numberOfNodes) + " nodes and " + str(numberOfEdges) + " edges."
     st.text(t)
 
+"""
+We can identify the 6 main characters just by looking at the network degree distribution.
+The 6 friends has the highest node degrees. In other words, 
+they simple have the highest number of relationship to other characters.
+"""
 
 ##################################################################### Degree distribution############################################################################################################################
 with st.container():
