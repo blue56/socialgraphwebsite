@@ -57,7 +57,7 @@ def generate_wordcloud(champion,df_wordlist):
 
     # Create and generate a word cloud image:
     colormap = random.choice(colormapList)
-    wordcloud = WordCloud(width=600, height=6s00, background_color='white', colormap=colormap).generate(wordcloud_string)
+    wordcloud = WordCloud(width=600, height=600, background_color='white', colormap=colormap).generate(wordcloud_string)
     wordcloud.collocations = False
 
     # Display the generated image:
