@@ -9,14 +9,14 @@ from matplotlib import pyplot as plt
 from matplotlib.pyplot import figure
 from plotly.graph_objs import Scatter, Figure
 from wordcloud import WordCloud
-<<<<<<< HEAD
+
 import plotly.graph_objects as go
 
 
-=======
+
 from pyvis import network as net
 from pyvis import options
->>>>>>> f277229cad6cbf606be7e3fdad30bff9be10b2bf
+
 
 def generate_network(df_nodes,df_edges):
 

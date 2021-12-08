@@ -20,13 +20,13 @@ import community as com
 import os
 from fa2 import ForceAtlas2
 from matplotlib.pyplot import figure
-<<<<<<< HEAD
+
 st.set_page_config(page_title="My App", layout='wide')
-=======
+
 from stvis import pv_static
 
 st.set_page_config(page_title="Friends - The Network",layout='wide')
->>>>>>> f277229cad6cbf606be7e3fdad30bff9be10b2bf
+
 # ===
 
 st.header('Welcome to the project website for the course Social graphs and interactions (02805)')
