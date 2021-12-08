@@ -41,31 +41,19 @@ G = logic.generate_network(df_nodes, df_edges)
 largest_cc = max(nx.connected_components(G), key=len)
 GCC = G.subgraph(largest_cc)
 
+st.title('Welcome to the project website for the course Social graphs and interactions (02805)')
+st.subheader('Made by Mihaela, Viktor, and Jacob')
 
 with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        col1.header('Welcome to the project website for the course Social graphs and interactions (02805)')
-        col1.subheader('Made by Mihaela, Viktor, and Jacob')
+        col1.header('Introduction video - The One With the Social Graphs')
+        st.video('https://youtu.be/_qKCQAbOt_8')
 
     with col2:
         col2.header('Network Visualization of the Friends Universe')
         st.pyplot(logic.generate_graph(GCC))
-
-with st.container():
-    # === Video
-    st.header('Introduction video - The One With the Social Graphs')
-    #st.video('https://youtu.be/_qKCQAbOt_8')
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.video('https://youtu.be/_qKCQAbOt_8')
-
-    # with col2:
-    #    col2.header('The One With the Social Graphs')
-    #    st.pyplot(logic.generate_graph(GCC))
 
 ###################################################################################### Basic stats###############################################################################################################
 
