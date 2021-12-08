@@ -62,7 +62,7 @@ with st.container():
         st.video('https://youtu.be/_qKCQAbOt_8')
 
     with col2:
-        col2.header('Friends Universe')
+        col2.header('The Friends Universe')
         st.pyplot(logic.generate_graph(GCC))
 
 ###################################################################################### Basic stats###############################################################################################################
@@ -129,24 +129,26 @@ st.write('Below you can choose your favorite Friends character and see what word
 
 
 with st.container():
-
     ch_selected = st.selectbox('See the word cloud for:', list(df_wordlist.Name.unique()))
 
-    st.pyplot(logic.generate_wordcloud(ch_selected,df_wordlist))
+    col1, col2 = st.columns(2)
+    with col1:
+        st.pyplot(logic.generate_wordcloud(ch_selected,df_wordlist))
+    
+    with col2:
+        """
+        So why is _Minsk_ a special word for Pheobe? Well, that's because her first love, David
+        the Scientist Guy, had to move to Minsk for work.
+
+        No wonder Phoebe found David interesting...
+        David is actually quite a positive guy, as you can see at the bottom of the page. He has a sentiment score of 0.133, which is above the average.
+
+        What do Ross and Joey have in common? _Dude, dude, dude._ Ross and Joey love to say _dude_. They say _dude_ 62 times in total.
+        """
 
 # Gigant connected
 largest_cc = max(nx.connected_components(G), key=len)
 GCC = G.subgraph(largest_cc)
-
-"""
-So why is Minsk a special word for Pheobe? Well, that's because her first love, David
-the Scientist Guy, had to move to Minsk for work.
-
-No wonder Phoebe found David interesting...
-David is actually quite a positive guy, as you can see at the bottom of the page. He has a sentiment score of 0.133, which is above the average.
-
-What do Ross and Joey have in common? _Dude, dude, dude._ Ross and Joey love to say _dude_. They say _dude_ 62 times in total.
-"""
 
 ###################################################################################################### PLOT NETWORK #########################################################################################################
 with st.container():
