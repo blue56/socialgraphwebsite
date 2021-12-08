@@ -156,7 +156,24 @@ with st.container():
 
     st.header('Interactive Friends Graphs')
     # st.pyplot(logic.generate_graph(GCC))
+    # st.markdown('''All characters colored by gender: <p style="background-color:#0066cc;color:#33ff33;>**male**</p> - purple, **female** - green, **unknown** - yellow.''', unsafe_allow_html=True)
+    # st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;>male</p>', unsafe_allow_html=True)
+    st.markdown(f'Colored by gender - \
+                  <span style="background-color:#03DAC6; color:black">male</span>\
+                  , <span style="background-color:#6200EE;">female</span>\
+                  , or <span style="background-color:#FFF176; color:black">unknown</span>\
+                  . Node size based on the character\'s number of lines.', unsafe_allow_html=True)
+
     pv_static(logic.generatePyvisGraphGender(df_nodes_attr, df_edges, G, GCC))
+
+    st.markdown(f'Colored main characters - \
+                  <span style="background-color:#FFF580; color:black">Chandler</span>\
+                  , <span style="background-color:#FF4238;">Monica</span>\
+                  , <span style="background-color:#FFDC00; color:black">Rachel</span>\
+                  , <span style="background-color:#42A2D6; color:black">Phoebe</span>\
+                  , <span style="background-color:#00009E;">Ross</span>\
+                  , and <span style="background-color:#9A0006;">Joey</span>', unsafe_allow_html=True)
+    
     pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
 
 """
