@@ -70,7 +70,7 @@ Friends is all about relationships, but what is actually happening at Central Pe
 
 First of all, we need to have the data available. We have done the hard work for you, so this website has all the needed information available. However, if you wish to jump into the data lake yourself then you can find the details here:
 
-[Link to explainer notebook]
+https://deepnote.com/@Socialgraph/Social-Graph-Project-ruOQZtAGSEKg4UbGjl_3hg
 
 Let's take a look at the character network. It consists of 424 characters that are connected by 2183 edges. Each edge represents that the character has some kind of a relationship to the other character.
 
