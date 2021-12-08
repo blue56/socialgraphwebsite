@@ -133,7 +133,7 @@ df_wordlist = pd.read_csv(wordlistPath)
 st.header('Word cloud drawings')
 
 
-st.write('But what is happeing at the center of Friends? They are of course talking a lot in the Central Perk café.')
+st.write('But what is happening at the center of Friends? They are of course talking a lot in the Central Perk café.')
 st.write('To be precise, the Friends series has 46657 story lines in total. Each of the 6 friends has their distinct way of talking.')
 st.write('Below you can choose your favorite Friends character and see what words make them special.')
 
@@ -237,7 +237,7 @@ with st.container():
                   , <span style="background-color:#6200EE; color:white">female</span>\
                   , or <span style="background-color:#FFF176; color:black">unknown</span>\
                   . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
-    st.markdown('It is know that Friends has an equal number of male and female characters - if we don\'t count the characters whose gender is unknown. The gender distribution is reflected in the graph as well')
+    st.markdown('It is known that Friends has an equal number of male and female characters - if we don\'t count the characters whose gender is unknown. The gender distribution is reflected in the graph as well')
     pv_static(logic.generatePyvisGraphGender(df_nodes_attr, df_edges, G, GCC))
 
     st.markdown(f'On the second graph the main characters are colored - \
@@ -247,7 +247,7 @@ with st.container():
                   , <span style="background-color:#42A2D6; color:black">Phoebe</span>\
                   , <span style="background-color:#00009E; color:white">Ross</span>\
                   , and <span style="background-color:#9A0006; color:white">Joey</span>', unsafe_allow_html=True)
-    st.markdown('Here we have decided to focus again on the main characters and their relationship. Therefore, we have coded the edges to take on the color of their starting node.Can you guess which'
+    st.markdown('Here we have decided to focus again on the main characters and their relationships. Therefore, we have coded the edges to take on the color of their starting node. Can you guess which '
                 'main character has formed the most connections? We\'ll dig into that later.')
 
     pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
