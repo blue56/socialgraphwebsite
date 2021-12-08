@@ -7,8 +7,12 @@ import streamlit
 from fa2 import ForceAtlas2
 from matplotlib import pyplot as plt
 from matplotlib.pyplot import figure
+from plotly.graph_objs import Scatter, Figure
 from wordcloud import WordCloud
-
+import plotly.graph_objects as go
+from pyvis import network as net
+from pyvis import options
+import altair as alt
 
 def generate_network(df_nodes,df_edges):
 
@@ -26,25 +30,15 @@ def generate_network(df_nodes,df_edges):
 
 def generate_degree_distribution_plot(G):
 
-
     # get all sentiment values
-    degrees = [i[1] for i in list(G.degree)]
+    degrees = pd.DataFrame()
+    degrees['degree'] = [i[1] for i in list(G.degree)]
     # get hist values and edges
-    hist, bin_edges = np.histogram(degrees)
+    #hist, bin_edges = np.histogram(degrees)
 
-    fig = figure(figsize=(12, 10), dpi=80)
-    n, bins, patches = plt.hist(x=degrees, bins='auto', color='#0504aa',
-                                alpha=0.7, rwidth=0.85)
-    plt.grid(axis='y', alpha=0.75)
-    plt.xlabel('Degree', fontsize=15)
-    plt.ylabel('Frequency', fontsize=15)
-    plt.title('$\it{F}$•$\it{R}$•$\it{I}$•$\it{E}$•$\it{N}$•$\it{D}$•$\it{S}$ - Degree Distribution', fontsize=18)
-    maxfreq = n.max()
-    # Set a clean upper y-axis limit.
-    plt.xticks(np.arange(min(degrees), max(degrees) + 1, 10))
-    plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+    fig = px.histogram(degrees, x='degree')
+    return streamlit.plotly_chart(fig, use_container_width=True)
 
-    return fig
 
 def generate_wordcloud(champion,df_wordlist):
 
@@ -61,7 +55,7 @@ def generate_wordcloud(champion,df_wordlist):
     wordcloud.collocations = False
 
     # Display the generated image:
-    fig = plt.figure( figsize=(5,10))
+    fig = plt.figure( figsize=(5,5))
     plt.tight_layout(pad=0)
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
@@ -69,6 +63,7 @@ def generate_wordcloud(champion,df_wordlist):
     plt.show()
 
     return fig
+
 
 
 def generate_graph(GCC):
@@ -121,7 +116,7 @@ def generate_graph(GCC):
 
     forceatlas2 = ForceAtlas2(outboundAttractionDistribution=False,edgeWeightInfluence=1.5,jitterTolerance=0.1,
     barnesHutOptimize=True,barnesHutTheta=1,scalingRatio=1.,strongGravityMode=False,gravity=0.1,verbose=True)
-    gf = figure(figsize=(20, 20), dpi=320)
+    gf = figure(figsize=(40, 40), dpi=320)
 
     ax = gf.add_subplot(1,1,1)
     for label in ColorLegend:
@@ -181,4 +176,121 @@ def create_sentiment_graph(sentiment_df):
 
     return streamlit.plotly_chart(fig, use_container_width=True)
 
+def generatePyvisGraph(df_nodes, df_edges, G):
+    # Create pyvis graph
+    g = net.Network(height='700px', width='1200px', notebook=False, heading='', bgcolor='#00000', font_color='white')
+    g.barnes_hut(gravity=-80000, central_gravity=0, overlap=1)
+    g.set_edge_smooth('continuous')
 
+    # Add colors for main character nodes
+    nodes_to_remove = []
+    for node in G:
+        if node == 'Chandler':
+            g.add_node('Chandler', label='Chandler', color="#FFF580")
+            nodes_to_remove.append(node)
+        elif node == 'Monica':
+            g.add_node('Monica', label='Monica', color="#FF4238")
+            nodes_to_remove.append(node)
+        elif node == 'Rachel':
+            g.add_node('Rachel', label='Rachel', color="#FFDC00")
+            nodes_to_remove.append(node)
+        elif node == 'Phoebe':
+            g.add_node('Phoebe', label='Phoebe', color="#42A2D6")
+            nodes_to_remove.append(node)
+        elif node == 'Ross':
+            g.add_node('Ross', label='Ross', color="#00009E")
+            nodes_to_remove.append(node)
+        elif node == 'Joey':
+            g.add_node('Joey', label='Joey', color="#9A0006")
+            nodes_to_remove.append(node)
+
+    G.remove_nodes_from(nodes_to_remove)
+
+    friends_links = list(zip(df_edges.From, df_edges.To))
+    G.add_edges_from(friends_links)
+
+    # Gigant connected 
+    largest_cc = max(nx.connected_components(G), key=len)
+    GCC = G.subgraph(largest_cc)
+
+    # Add default colored nodes to pyvis graph
+    g.add_nodes(GCC.nodes)
+
+    # Add color for main character edges
+    edges_to_remove = []
+    for edge in list(G.edges()):
+        a = edge[0]
+        b = edge[1]
+        if ('Chandler' in a) or ('Chandler' in b):
+            g.add_edge(a, b, color = "FFF580")
+            edges_to_remove.append(edge)
+        elif ('Monica' in a) or ('Monica' in b):
+            g.add_edge(a, b, color = "FF4238")
+            edges_to_remove.append(edge)
+        elif ('Rachel' in a) or ('Rachel' in b):
+            g.add_edge(a, b, color = "FFDC00")
+            edges_to_remove.append(edge)
+        elif ('Phoebe' in a) or ('Phoebe' in b):
+            g.add_edge(a, b, color = "42A2D6")
+            edges_to_remove.append(edge)
+        elif ('Ross' in a) or ('Ross' in b):
+            g.add_edge(a, b, color = "00009E")
+            edges_to_remove.append(edge)
+        elif ('Joey' in a) or ('Joey' in b):
+            g.add_edge(a, b, color = "9A0006")
+            edges_to_remove.append(edge)
+
+    # Add default colored edges to pyvis graph
+    G.remove_edges_from(edges_to_remove)
+    g.add_edges(G.edges)
+    return g
+
+def generatePyvisGraphGender(df_nodes, df_edges, G, GCC):
+    # Create pyvis graph
+    g = net.Network(height='700px', width='1200px', notebook=False, heading='', bgcolor='#00000', font_color='white')
+    g.barnes_hut(gravity=-80000, central_gravity=0, overlap=1)
+    g.set_edge_smooth('continuous')
+
+    # Get df_names if existing in GCC
+    df_nodes = df_nodes[df_nodes.Name.isin(list(GCC.nodes))]
+
+    names = df_nodes['Name'].values
+    num_lines = 7 * np.log([1 if val == 0 else val for val in df_nodes['No_of_Lines'].values])
+    genders = df_nodes['Gender'].values
+
+    # Get node colors based on gender
+    node_colors = ['#03DAC6' if gender == 'male' else '#6200EE' if gender == 'female' else '#FFF176' for gender in genders]
+    
+    # Add nodes with color based on gender and size based on number of lines
+    for i in range(len(names)):
+        g.add_node(names[i], label=names[i], color=node_colors[i], size=num_lines[i])
+
+    g.add_edges(G.edges)
+    return g
+
+
+import plotly.graph_objects as go
+def create_centrality_graphs(df_centrality):
+
+    colors = ['#ff7f0e', ] * len(df_centrality)
+    fig = go.Figure(data=[go.Bar(x=list(df_centrality['Character']), y=list(df_centrality['Value']),marker_color=colors)])
+    #fig = px.bar(df_centrality, x=df_centrality.columns[1], y=df_centrality.columns[2], color = colors)
+
+    return streamlit.plotly_chart(fig, use_container_width=True)
+
+def create_centrality_graphs_v2(df_centrality):
+
+    colors = ['#bcbd22', ] * len(df_centrality)
+    fig = go.Figure(data=[go.Bar(x=list(df_centrality['Character']), y=list(df_centrality['Value']),marker_color=colors)])
+
+    return streamlit.plotly_chart(fig, use_container_width=True)
+
+def generate_bar_chart(df_lines_words):
+    df_lines_words = df_lines_words[["Character", "no_sentences", "no_words"]]
+    df_lines_words = df_lines_words.loc[df_lines_words['no_sentences'] > 93]
+
+    return alt.Chart(df_lines_words).mark_bar(opacity=0.9).encode(
+        x='no_sentences',
+        y=alt.Y('Character', sort='-x'),
+        tooltip=['Character', 'no_sentences', 'no_words']
+    )
