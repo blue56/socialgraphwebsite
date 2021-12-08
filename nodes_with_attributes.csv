@@ -1,0 +1,424 @@
+,Name,Sentiment,No_of_Lines,Gender
+0,Aaron Goralnik,,0.0,male
+1,Al Zebooker,,0.0,male
+2,Alan,0.2434285714285714,7.0,male
+3,Alan Lewis,0.2434285714285714,7.0,male
+4,Albert,,0.0,male
+5,Alice Knight,0.08486511627906977,43.0,female
+6,Allesandro,0.10926476964769648,369.0,unknown
+7,Althea,,0.0,female
+8,Althea's husband,,0.0,unknown
+9,Amanda (Monica And Chandler's wedding),0.5063599999999999,5.0,female
+10,Amanda (Ross' date),0.5063599999999999,5.0,female
+11,Amanda Buffamonteezi,0.5063599999999999,5.0,female
+12,Amy Greene,,0.0,female
+13,Amy Welsh,,0.0,female
+14,Andrea Waltham,-0.0772,1.0,female
+15,Andrew,,0.0,male
+16,Angela Delveccio,0.1929777777777778,18.0,female
+17,Anita Altman,,0.0,female
+18,Annabel,,0.0,female
+19,Arthur,,0.0,male
+20,Ashley Tribbiani,,0.0,female
+21,Aunt Cheryl,,0.0,female
+22,Aunt Iris,,0.0,female
+23,Aunt Liddy,,0.0,female
+24,Aunt Lillian,,0.0,female
+25,Aunt Lisa,,0.0,female
+26,Aunt Millie,,0.0,female
+27,Aunt Phylis,,0.0,female
+28,Aunt Sylvia,,0.0,female
+29,Aurora,0.12622666666666668,30.0,female
+30,Barbara Burke,,0.0,female
+31,Barry Farber,0.133872,50.0,male
+32,Ben Geller,0.010588059701492533,67.0,male
+33,Benjamin Hobart,0.010588059701492533,67.0,male
+34,Bill,0.119025,8.0,male
+35,Bitsy Hannigan,0.15302380952380956,21.0,unknown
+36,Bob,0.04174545454545455,22.0,male
+37,Bob (Chandler's coworker),0.04174545454545455,22.0,male
+38,Bob (rat),0.04174545454545455,22.0,male
+39,Bobby Corso,0.04174545454545455,22.0,male
+40,Bobby Rush,0.04174545454545455,22.0,male
+41,Bonnie,0.1643945945945946,37.0,female
+42,Brenda,0.10326874999999999,16.0,female
+43,Brown Bird Troop Leader,0.09444,10.0,unknown
+44,Bruce Buffer,,0.0,male
+45,Buddy Doyle,,0.0,male
+46,Michelle Burke,,0.0,female
+47,Cailin,0.0734,6.0,unknown
+48,Cailin Praytor,0.0734,6.0,unknown
+49,Caitlin,0.025309677419354845,31.0,female
+50,Carl (actor),0.013344444444444443,9.0,male
+51,Carl (bully),0.013344444444444443,9.0,male
+52,Carl (Rachel's date),0.013344444444444443,9.0,male
+53,Carlos,0.013344444444444443,9.0,male
+54,Carol Willick,0.04719687499999999,64.0,female
+55,Caroline Duffy,0.09350344827586207,174.0,male
+56,Cassie,0.137325,20.0,female
+57,Catherine,0.16231111111111113,9.0,female
+58,Cathy,,0.0,female
+59,Cecilia Monroe,0.10485645161290322,62.0,male
+60,Celia,0.023124999999999996,8.0,female
+61,Chandler,0.08875212647241171,8065.0,male
+62,Chandler Buffay,,0.0,male
+63,Chappy,,0.0,unknown
+64,Charla Nichols,,0.0,female
+65,Charles Bing,,0.0,unknown
+66,Charlie Wheeler,0.12334975845410628,207.0,male
+67,Charlton Heston,,0.0,unknown
+68,Cheryl,,0.0,female
+69,Chi-Chi,,0.0,unknown
+70,Chick Jr. & Duck Jr.,,0.0,unknown
+71,Chip Matthews,0.075388,25.0,male
+72,Chloe,0.08222368421052632,38.0,female
+73,Christmas tree customer,,0.0,unknown
+74,Dick Clark,,0.0,male
+75,Clifford Burnett,0.07156818181818181,22.0,male
+76,Colin,,0.0,male
+77,Colleen,0.14301999999999998,10.0,female
+78,Cookie,-0.04933333333333333,6.0,unknown
+79,Cousin Frannie,-0.014100000000000008,9.0,unknown
+80,Dan,0.1162125,8.0,male
+81,Dana Keystone,0.05912,15.0,female
+82,Danielle,0.1162125,8.0,female
+83,Danny,0.1162125,8.0,male
+84,Dave,0.36925,4.0,male
+85,David,0.13331552795031054,161.0,male
+86,"David ""Tank"" Abbott",0.13331552795031054,161.0,male
+87,Dean Lipson,,0.0,male
+88,Delia,,0.0,female
+89,Denise,,0.0,female
+90,Dennis Phillips,0.0,3.0,male
+91,Devon,0.14846,5.0,male
+92,Dina,0.016518918918918924,37.0,female
+93,Don,0.13125,16.0,male
+94,Doug,0.03862571428571429,70.0,male
+95,Dr. Baldharan,,0.0,unknown
+96,Dr. Franzblau,,0.0,unknown
+97,Dr. Gettleman,,0.0,unknown
+98,Dr. Gettleman's daughter,,0.0,unknown
+99,Dr. Harad,,0.0,unknown
+100,Dr. Ledbetter,,0.0,unknown
+101,Dr. Long,,0.0,male
+102,Dr. Oberman,,0.0,unknown
+103,Dr. Robert Bobby,0.04174545454545455,22.0,male
+104,Dr. Roger,0.07328717948717949,39.0,male
+105,Dr. Schiff,,0.0,unknown
+106,Dr. Wesley,,0.0,male
+107,Dr. Wiener,,0.0,unknown
+108,Duncan,,0.0,male
+109,Earl,0.06403939393939395,33.0,male
+110,Eddie Menuek,,0.0,male
+111,Elizabeth Hornswoggle,0.06769705882352942,102.0,female
+112,Elizabeth Stevens,0.06769705882352942,102.0,female
+113,Emilio,,0.0,male
+114,Emily Waltham,0.07405359116022098,181.0,female
+115,Emily Waltham's cousin,0.07405359116022098,181.0,female
+116,Emily Waltham's second husband,0.07405359116022098,181.0,female
+117,Emma Geller-Greene,,0.0,female
+118,Eric,0.07336197183098589,71.0,male
+119,Eric (photographer),0.07336197183098589,71.0,male
+120,Erica,0.07336197183098589,71.0,female
+121,Erica Bing,0.07336197183098589,71.0,unknown
+122,Erika Ford,,0.0,female
+123,Erin,0.0764037037037037,27.0,female
+124,Estelle Leonard,0.08419523809523809,21.0,male
+125,Ethan,,0.0,male
+126,Fake Monica,,0.0,female
+127,Felicity,,0.0,female
+128,Frances,,0.0,female
+129,Frank Buffay Jr.,0.101325974025974,154.0,male
+130,Frank Buffay Sr.,0.101325974025974,154.0,male
+131,Frank Jr. Jr.,0.101325974025974,154.0,male
+132,Franny,,0.0,female
+133,Fun Bobby,0.04174545454545455,22.0,male
+134,Fun Bobby's grandfather,0.04174545454545455,22.0,unknown
+135,Gary,0.11077478260869562,115.0,male
+136,Gary (neighbor),0.11077478260869562,115.0,male
+137,Gary Litman,0.11077478260869562,115.0,male
+138,Gavin,0.08816779661016948,59.0,male
+139,Gavin Mitchell,0.08816779661016948,59.0,male
+140,Grandma Geller,,0.0,unknown
+141,Gene Lester,0.01831153846153846,26.0,male
+142,George Stephanopoulos,,0.0,male
+143,Gina Tribbiani,,0.0,female
+144,Ginger,-0.0038199999999999983,20.0,female
+145,Glenda,,0.0,female
+146,Gloria Tribbiani,,0.0,female
+147,Gunther,0.06895825242718447,103.0,male
+148,Guru Saj,,0.0,unknown
+149,Hayley,0.2732,1.0,female
+150,Hillary,,0.0,female
+151,Hootie and the Blowfish,,0.0,unknown
+152,Hope,0.0,1.0,female
+153,Howard,,0.0,male
+154,Huggsy,,0.0,unknown
+155,Ida Greene,,0.0,female
+156,Isaac,,0.0,male
+157,Isabella Rossellini,0.032888888888888884,9.0,female
+158,Jack Geller,-0.023899999999999998,10.0,male
+159,Jade,,0.0,female
+160,Jake,0.27081666666666665,6.0,male
+161,Jamie,,0.0,female
+162,Janice Litman-Goralnik,0.09240687285223363,291.0,female
+163,Janine Lecroix,0.16207926829268293,82.0,female
+164,Jarvis Oberblau,,0.0,male
+165,Jasmine,-0.2033625,8.0,female
+166,Jason,0.07664375000000001,16.0,male
+167,Jean-Claude Van Damme,,0.0,male
+168,Jeanine,,0.0,female
+169,Jeffrey,,0.0,male
+170,Jen,0.17101428571428573,7.0,female
+171,Jessica Ashley,,0.0,female
+172,Jessica Lockhart,,0.0,female
+173,Jill Goodacre,0.0881172043010753,93.0,female
+174,Jill Greene,0.0881172043010753,93.0,female
+175,Jim Nelson,0.07851764705882353,17.0,male
+176,Joan Tedeschi,,0.0,female
+177,Joanna,0.06672535211267606,71.0,female
+178,Joanne,0.0625,4.0,female
+179,Joey,0.09063037780401509,8470.0,male
+180,Joey Tribbiani Sr.,,0.0,male
+181,Josh,0.1394375,8.0,male
+182,Joshua Burgin,0.15739999999999998,107.0,male
+183,Joshua Burgin's ex-wife,0.15739999999999998,107.0,male
+184,Joshua Burgin's nephew,0.15739999999999998,107.0,male
+185,Judy Geller,,0.0,female
+186,Julie,0.17774750000000003,40.0,female
+187,Julie Coreger,0.17774750000000003,40.0,female
+188,Julie Graff,0.17774750000000003,40.0,female
+189,Julio (cat),-0.04649999999999998,16.0,male
+190,Julio (poet),-0.04649999999999998,16.0,male
+191,Kara,0.15653999999999998,5.0,female
+192,Kash Ford,0.14203,10.0,unknown
+193,Kate Miller,0.10627402597402599,77.0,female
+194,Kathy,0.15547272727272726,88.0,female
+195,Katie,0.2156515151515152,33.0,female
+196,Katie (saleswoman),0.2156515151515152,33.0,female
+197,Kiki,-0.063,2.0,female
+198,Kim,0.10812777777777777,36.0,female
+199,Kip,,0.0,male
+200,Kori Weston,-0.03661538461538461,13.0,male
+201,Krista,0.13313333333333333,9.0,female
+202,Kristen Leigh,0.13101388888888887,36.0,female
+203,Kyle,0.18409999999999999,4.0,female
+204,Larry,0.0616952380952381,21.0,male
+205,Laura,,0.0,female
+206,Lauren,0.043909090909090905,22.0,female
+207,Leonard Greene,,0.0,male
+208,Leonard Hayes,,0.0,male
+209,Leslie,0.13915624999999998,16.0,female
+210,Leslie (casting director),0.13915624999999998,16.0,female
+211,Leslie Buffay,0.13915624999999998,16.0,female
+212,Liam,0.0029909090909090896,11.0,male
+213,Lily Buffay,,0.0,female
+214,Lizzy,,0.0,female
+215,Louis Posen,,0.0,male
+216,Kyle Lowder,0.18409999999999999,4.0,female
+217,Lowell (mugger),0.2263125,8.0,male
+218,Luisa Gianetti,-0.05979523809523809,21.0,female
+219,Lydia,0.040183333333333335,36.0,female
+220,Mackenzie,0.07114999999999999,12.0,female
+221,Malcolm,,0.0,male
+222,Male Guest,,0.0,unknown
+223,Marc Coreger,0.08995,10.0,male
+224,Marcel,0.08995,10.0,male
+225,Margha,0.025009090909090904,11.0,unknown
+226,Maria,,0.0,female
+227,Marie,,0.0,female
+228,Aunt Marilyn,,0.0,female
+229,Marjorie,0.10606666666666666,3.0,female
+230,Mark Robinson,-0.001899999999999999,12.0,male
+231,Mark Robinson's niece,-0.001899999999999999,12.0,male
+232,Marsha,0.11251666666666667,6.0,female
+233,Marshall Townend,0.11251666666666667,6.0,male
+234,Mary,,0.0,female
+235,Mary Ellen Jenkins,0.17101428571428573,7.0,female
+236,Mary-Angela,0.1929777777777778,18.0,unknown
+237,Mary-Therese Tribbiani,,0.0,unknown
+238,Maureen,,0.0,female
+239,Max,0.051095238095238096,21.0,male
+240,Megan Bailey,0.0490764705882353,17.0,female
+241,Melanie,0.0,1.0,female
+242,Melissa Warburton,0.0,1.0,female
+243,Michael,,0.0,male
+244,Michelle,,0.0,female
+245,"Mike ""Gandalf"" Ganderson",0.10307176470588238,255.0,male
+246,Mike Hannigan,0.10307176470588238,255.0,male
+247,Mike Hannigan's brother,0.10307176470588238,255.0,male
+248,Mike Hannigan's ex-wife,0.10307176470588238,255.0,male
+249,Mike Hannigan's sister,0.10307176470588238,255.0,male
+250,Minnie,,0.0,female
+251,Mischa,0.05464,5.0,male
+252,Missy Goldberg,0.09117692307692307,13.0,female
+253,Mitzi,,0.0,female
+254,Molly,0.13316666666666666,9.0,female
+255,Mona,0.09818095238095237,105.0,female
+256,Mona's boyfriend,0.09818095238095237,105.0,unknown
+257,Monica,0.08362846741045246,8515.0,female
+258,Mozzarella,,0.0,unknown
+259,Mr. Adelman,,0.0,unknown
+260,Mr. Bunch,,0.0,unknown
+261,Mr. Burgin,,0.0,unknown
+262,Mr. Douglas,0.03862571428571429,70.0,male
+263,Mr. Heckles,,0.0,unknown
+264,Mr. Kaplan Jr.,,0.0,unknown
+265,Mr. Rastatter,,0.0,unknown
+266,Mr. Simon,,0.0,male
+267,Mr. Treeger,,0.0,unknown
+268,Mr. Waltham,,0.0,unknown
+269,Mr. Wheeler,,0.0,unknown
+270,Mr. Zelner,,0.0,unknown
+271,Mrs Adelman,,0.0,unknown
+272,Mrs Burkart,,0.0,unknown
+273,Mrs. Braverman,,0.0,unknown
+274,Mrs. Buffay (Frank Sr.'s second wife),0.101325974025974,154.0,unknown
+275,Mrs. Bunch,,0.0,unknown
+276,Mrs. Burgin,,0.0,unknown
+277,Mrs. Burnett,,0.0,unknown
+278,Mrs. K.,,0.0,unknown
+279,Mrs. Robinson,-0.001899999999999999,12.0,unknown
+280,Mrs. Stevens,0.0,2.0,unknown
+281,Mrs. Tedlock,,0.0,unknown
+282,Ms. McKenna,0.0,1.0,female
+283,Ms. Stevens,0.0,2.0,unknown
+284,Muriel,,0.0,female
+285,Myron,,0.0,male
+286,Nancy,0.08597000000000002,10.0,female
+287,Nancy (Bloomingdale's Employee),0.08597000000000002,10.0,female
+288,Nancy (realtor),0.08597000000000002,10.0,female
+289,Nancy Branson,0.08597000000000002,10.0,female
+290,Nancy Oberblau,0.08597000000000002,10.0,female
+291,Nasforatool,,0.0,unknown
+292,Ned Morse,0.04019,10.0,male
+293,Nervous male passenger,,0.0,unknown
+294,Nick,,0.0,male
+295,Nina Bookbinder,,0.0,female
+296,Nonna,,0.0,female
+297,Nonnie,,0.0,unknown
+298,Nora Tyler Bing,,0.0,unknown
+299,Nurse,0.0625875,48.0,unknown
+300,Nurse Sizemore,0.0625875,48.0,unknown
+301,Donny Osmond,0.21667272727272727,22.0,male
+302,Owen,0.02114285714285714,14.0,male
+303,Paolo,0.0,4.0,male
+304,Paolo's cat,0.0,4.0,unknown
+305,Parker,0.11764444444444445,45.0,male
+306,Paul Stevens,0.0,2.0,male
+307,Paul the Wine Guy,0.0661384105960265,151.0,male
+308,Paula,0.07678750000000001,8.0,female
+309,Pete Becker,0.11290393700787395,127.0,male
+310,Peter,0.11290393700787395,127.0,male
+311,Phoebe Abbott,,0.0,female
+312,Phoebe,0.10083004587156034,7848.0,female
+313,Phoebe's stepfather,,0.0,unknown
+314,Pizza Guy,0.09411764705882356,51.0,male
+315,Precious,-0.06340555555555556,18.0,female
+316,Professor Spafford,,0.0,unknown
+317,Rachel,0.09941648828756156,9904.0,female
+318,Ralph Lauren,0.043909090909090905,22.0,female
+319,Randall,,0.0,male
+320,Restaurant Manger/Producer,0.05189574468085106,47.0,unknown
+321,Rhonda,,0.0,female
+322,Richard Burke,0.07814507042253523,142.0,male
+323,Richard Darnville,0.07814507042253523,142.0,male
+324,Rick,0.14758571428571426,14.0,male
+325,Rick (Aurora's husband),0.12622666666666668,30.0,male
+326,Rick Sanoven,0.14758571428571426,14.0,male
+327,Rob Donnen,0.13125,16.0,male
+328,Robert,0.15430833333333333,24.0,male
+329,Robinson Twins,-0.001899999999999999,12.0,unknown
+330,Roger,0.07328717948717949,39.0,male
+331,Ronni Rapalono,0.19625769230769233,26.0,male
+332,Ross,0.0870291269580464,9129.0,male
+333,Ross Zelner,,0.0,male
+334,Roy,0.06987000000000002,40.0,male
+335,"Roy ""Goodbody""",0.06987000000000002,40.0,male
+336,Roy Gublik,0.06987000000000002,40.0,male
+337,Russ,,0.0,male
+338,Russell,0.030915384615384615,13.0,male
+339,Ryan,,0.0,male
+340,Sally,,0.0,female
+341,Sandra Greene,,0.0,female
+342,Sandra Greene's father,,0.0,female
+343,Sandy,0.15393750000000003,48.0,female
+344,Sarah,0.19307894736842104,19.0,female
+345,Sarah Tuttle,0.19307894736842104,19.0,female
+346,Schnoodle,,0.0,unknown
+347,Sergei,0.0,5.0,male
+348,Sharon Majeski,,0.0,female
+349,Shelly,,0.0,female
+350,Shovelly Joe,,0.0,male
+351,Sid Goralnik,0.0,1.0,male
+352,Sidney Marks,0.10343484848484852,66.0,male
+353,Silvia,,0.0,female
+354,Sonya,,0.0,female
+355,Sophie,0.09246363636363637,11.0,female
+356,Stephanie,0.2732,1.0,female
+357,Stephen Waltham,,0.0,male
+358,Steve (Chandler's boss),0.09211746031746033,63.0,male
+359,Steve (drug addict),0.09211746031746033,63.0,male
+360,Steve Cera,0.09211746031746033,63.0,male
+361,Steven Fisher,0.09211746031746033,63.0,male
+362,Stevens siblings' father,0.0,2.0,unknown
+363,Stevens siblings' mother,0.0,2.0,unknown
+364,Stryker Ramoray,,0.0,unknown
+365,Stu,,0.0,male
+366,Stuart,,0.0,male
+367,Susan Bunch,0.08010104166666668,96.0,female
+368,Susie Moss,,0.0,female
+369,Ta-Taka-Ki-Kek,,0.0,unknown
+370,Tabitha,,0.0,female
+371,Tag Jones,0.10665903614457832,166.0,male
+372,Terry,-0.009800000000000005,15.0,male
+373,Terry (casting director),-0.009800000000000005,15.0,male
+374,The accountant,,0.0,female
+375,The Chick and The Duck,,0.0,female
+376,The Doctor,0.14596521739130433,23.0,female
+377,The Dry Cleaner,,0.0,female
+378,The Dry Cleaner's Wife,,0.0,female
+379,The female guest,,0.0,female
+380,The Handyman,,0.0,female
+381,The Housekeeper,,0.0,female
+382,The Interviewer,0.07502727272727273,11.0,female
+383,The Judge,0.11950833333333333,12.0,male
+384,The Kids,0.2799333333333333,3.0,female
+385,The next next Martin Scorsese,,0.0,male
+386,The Tanning Salon Guy,0.09411764705882356,51.0,male
+387,The Thief,,0.0,female
+388,The Triplets,,0.0,female
+389,The Waiter,-0.004508000000000006,25.0,female
+390,The Zoo Employee,0.0,1.0,female
+391,Theodore Hannigan,0.17682307692307694,13.0,male
+392,Tilly,,0.0,female
+393,Tim,0.1306240740740741,54.0,male
+394,Tim (Season 3),0.1306240740740741,54.0,male
+395,Timmy,0.1306240740740741,54.0,male
+396,Timothy Burke,0.1306240740740741,54.0,male
+397,Tina,,0.0,female
+398,"Todd, the Hombre Man",0.05189574468085106,47.0,unknown
+399,Tom,0.11103181818181816,22.0,male
+400,Tomas,0.11103181818181816,22.0,male
+401,Tommy,0.11103181818181816,22.0,male
+402,Tony,0.155975,4.0,male
+403,Tony (Allesandro's employee),0.10926476964769648,369.0,male
+404,Tribbiani Sisters,,0.0,unknown
+405,Trudie Styler,,0.0,female
+406,Ugly Naked Guy,0.09411764705882356,51.0,male
+407,Uncle Dan,0.1162125,8.0,male
+408,Uncle Freddie,,0.0,male
+409,Uncle Murray,,0.0,male
+410,Uncle Sal,,0.0,male
+411,Unidentified Phoebe Buffay fan,,0.0,female
+412,Unnamed characters,,0.0,unknown
+413,Unnamed Season 1 Characters,,0.0,unknown
+414,Unnamed Season 7 Characters,,0.0,unknown
+415,Ursula Buffay,0.13147400000000004,50.0,female
+416,Vince,0.06291428571428571,14.0,male
+417,Walter,,0.0,male
+418,Wayne,0.048443749999999994,16.0,male
+419,Wendy,0.18,19.0,female
+420,Whitney,0.119075,8.0,male
+421,Will Colbert,0.04719687499999999,64.0,male
+422,Young Ethan,,0.0,male

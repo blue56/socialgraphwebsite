@@ -20,7 +20,13 @@ import community as com
 import os
 from fa2 import ForceAtlas2
 from matplotlib.pyplot import figure
+<<<<<<< HEAD
 st.set_page_config(page_title="My App", layout='wide')
+=======
+from stvis import pv_static
+
+st.set_page_config(page_title="Friends - The Network",layout='wide')
+>>>>>>> f277229cad6cbf606be7e3fdad30bff9be10b2bf
 # ===
 
 st.header('Welcome to the project website for the course Social graphs and interactions (02805)')
@@ -148,7 +154,9 @@ They say "dude" 62 times in total.
 with st.container():
 
     st.header('Graph drawing')
-    st.pyplot(logic.generate_graph(GCC))
+    # st.pyplot(logic.generate_graph(GCC))
+    pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
+
 
 """
 
@@ -188,6 +196,6 @@ with st.container():
     logic.create_sentiment_graph(episodes_sentiment)
 #######################################################################################SENTIMENT CHARACTERS###################################################################################################################
 characters_sentiment = pd.read_csv('characters_sentiment.csv')
-with st.container():
 
+with st.container():
     logic.create_sentiment_graph(characters_sentiment)
