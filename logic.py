@@ -68,9 +68,6 @@ def generate_wordcloud(champion,df_wordlist):
 
     return fig
 
-def generate_plotly_graph(df_nodes,links):
-
-    return 0
 
 
 def generate_graph(GCC):
@@ -123,7 +120,7 @@ def generate_graph(GCC):
 
     forceatlas2 = ForceAtlas2(outboundAttractionDistribution=False,edgeWeightInfluence=1.5,jitterTolerance=0.1,
     barnesHutOptimize=True,barnesHutTheta=1,scalingRatio=1.,strongGravityMode=False,gravity=0.1,verbose=True)
-    gf = figure(figsize=(20, 20), dpi=320)
+    gf = figure(figsize=(40, 40), dpi=320)
 
     ax = gf.add_subplot(1,1,1)
     for label in ColorLegend:
@@ -185,7 +182,7 @@ def create_sentiment_graph(sentiment_df):
 
 def generatePyvisGraph(df_nodes, df_edges, G):
     # Create pyvis graph
-    g = net.Network(height='700px', width='1200px', notebook=False, heading='', bgcolor='#00000', font_color='white')
+    g = net.Network(height='700px', width='800px', notebook=False, heading='', bgcolor='#00000', font_color='white')
     g.barnes_hut(gravity=-80000, central_gravity=0, overlap=1)
     g.set_edge_smooth('continuous')
 
@@ -274,3 +271,19 @@ def generatePyvisGraphGender(df_nodes, df_edges, G, GCC):
 
     g.add_edges(G.edges)
     return g
+
+import plotly.graph_objects as go
+def create_centrality_graphs(df_centrality):
+
+    colors = ['#ff7f0e', ] * len(df_centrality)
+    fig = go.Figure(data=[go.Bar(x=list(df_centrality['Character']), y=list(df_centrality['Value']),marker_color=colors)])
+    #fig = px.bar(df_centrality, x=df_centrality.columns[1], y=df_centrality.columns[2], color = colors)
+
+    return streamlit.plotly_chart(fig, use_container_width=True)
+
+def create_centrality_graphs_v2(df_centrality):
+
+    colors = ['#bcbd22', ] * len(df_centrality)
+    fig = go.Figure(data=[go.Bar(x=list(df_centrality['Character']), y=list(df_centrality['Value']),marker_color=colors)])
+
+    return streamlit.plotly_chart(fig, use_container_width=True)

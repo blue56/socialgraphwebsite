@@ -29,7 +29,7 @@ st.set_page_config(page_title="Friends • The Network",layout='wide')
 # ===
 
 st.header('Welcome to the project website for the course Social graphs and interactions (02805)')
-st.subheader('Made by Mihaela-Elena Nistor, Viktor Anzhelev Tsanev and Jacob Kofod')
+st.subheader('Made by Mihaela, Viktor and Jacob')
 
 
 ################################################################## Read characters from CSV###################################################################################################################
@@ -55,15 +55,16 @@ with st.container():
     #st.header('Introduction video')
     #st.video('https://youtu.be/_qKCQAbOt_8')
 
-    col1, col2 = st.columns(2)
+    #col1, col2 = st.columns(2)
 
-    with col1:
-        col1.header('Introduction Video')
+    #with col1:
+        st.header('Introduction Video')
         st.video('https://youtu.be/_qKCQAbOt_8')
+        st.balloons()
 
-    with col2:
-        col2.header('The Friends Universe')
-        st.pyplot(logic.generate_graph(GCC))
+    #with col2:
+     #   col2.header('The Friends Universe')
+     #   st.pyplot(logic.generate_graph(GCC))
 
 ###################################################################################### Basic stats###############################################################################################################
 
@@ -79,6 +80,10 @@ First of all, we need to have the data available. We have done the hard work for
 Let's take a look at the character network. It consists of 424 characters that are connected by 2183 edges. Each edge represents that the character has some kind of a relationship to the other character.
 
 """
+st.pyplot(logic.generate_graph(GCC))
+
+st.markdown('In the visualization above we can observe the Friends Universe in the shape of a network. The nodes representing the main six character have been colored with distinct colors. '
+            'Moreover the node size has been adjusted to be proportional with the degree while the edges have inherited the color of the starting node')
 
 with st.container():
 
@@ -92,25 +97,26 @@ with st.container():
     st.markdown(t)
 
 """
-We can identify the 6 main characters just by looking at the network degree distribution.
+We can easily identify the 6 main characters just by looking at the network degree distribution.
 The 6 friends have the highest node degrees.
 \nIn other words, they simply have the highest number of relationships to other characters.
-That is expectable for something that is human-made. The statistics would look differently if the network was totally random.
+That is expected for something that is human-made. The statistics would look differently if the network was totally random.
 
 """
+
 
 ##################################################################### Degree distribution############################################################################################################################
 with st.container():
 
-    st.header('Degree distributions')
+    st.subheader('Degree Distribution')
     logic.generate_degree_distribution_plot(G)
 
 ##################################################################### PLOTLY PLOT #####################################################################################################################################
-friends_links = pd.read_csv('friends_links.csv')
-with st.container():
+#friends_links = pd.read_csv('friends_links.csv')
+#with st.container():
 
-    st.header('Degree distributions')
-    logic.generate_plotly_graph(df_nodes,friends_links)
+    #st.header('Degree distributions')
+ #   logic.generate_graph(df_nodes,friends_links)
 
 
 ##############################################################################WORDCLOUDS ################################################################################################################################
@@ -120,7 +126,6 @@ wordlistPath = "characterwords.csv"
 df_wordlist = pd.read_csv(wordlistPath)
 
 st.header('Word cloud drawings')
-
 
 
 st.write('But what is happing at the center of Friends? They are of course talking a lot in the Central Perk café.')
@@ -137,11 +142,11 @@ with st.container():
     
     with col2:
         """
-        So why is _Minsk_ a special word for Pheobe? Well, that's because her first love, David
+        So why is _Minsk_ a special word for Phoebe? Well, that's because her first love, David
         the Scientist Guy, had to move to Minsk for work.
 
         No wonder Phoebe found David interesting...
-        David is actually quite a positive guy, as you can see at the bottom of the page. He has a sentiment score of 0.133, which is above the average.
+        David is actually quite a positive guy, as you can see at the bottom of the page. He has a sentiment score of 0.133,which is above the average.
 
         What do Ross and Joey have in common? _Dude, dude, dude._ Ross and Joey love to say _dude_. They say _dude_ 62 times in total.
         """
@@ -152,17 +157,19 @@ GCC = G.subgraph(largest_cc)
 
 ###################################################################################################### PLOT NETWORK #########################################################################################################
 with st.container():
+    st.markdown("<h2 style='text-align: center; color: black;'>Interactive Visualizations of the Friends Universe</h2>", unsafe_allow_html=True)
 
-    st.header('Interactive Friends Graphs')
-    # st.pyplot(logic.generate_graph(GCC))
-    
     st.markdown(f'Let\'s look at two interactive graphs of the Friends network. The first one is colored by gender - \
-                  <span style="background-color:#03DAC6; color:black">male</span>\
-                  , <span style="background-color:#6200EE;">female</span>\
-                  , or <span style="background-color:#FFF176; color:black">unknown</span>\
-                  . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
+                      <span style="background-color:#03DAC6; color:black">male</span>\
+                      , <span style="background-color:#6200EE;">female</span>\
+                      , or <span style="background-color:#FFF176; color:black">unknown</span>\
+                      . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
 
     pv_static(logic.generatePyvisGraphGender(df_nodes_attr, df_edges, G, GCC))
+
+
+    pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
+
 
     st.markdown(f'On the second graph the main characters are colored - \
                   <span style="background-color:#FFF580; color:black">Chandler</span>\
@@ -172,7 +179,7 @@ with st.container():
                   , <span style="background-color:#00009E;">Ross</span>\
                   , and <span style="background-color:#9A0006;">Joey</span>', unsafe_allow_html=True)
     
-    pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
+
 
 """
 Let’s go back to Phoebe and her relationships. It seems that the best relationship in the Friends universe is Phoebe and Mike’s. To be more precise, Mike has the most positive sentiment when talking about Phoebe. This can be seen in the Sentiment for a pair of characters. They have a sentiment score of 0.17 - far above the average.
@@ -207,3 +214,23 @@ characters_sentiment = pd.read_csv('characters_sentiment.csv')
 
 with st.container():
     logic.create_sentiment_graph(characters_sentiment)
+
+#######################################################################################Centrality###################################################################################################################
+characters_sentiment = pd.read_csv('characters_sentiment.csv')
+
+deg_centrality_df = pd.read_csv('top_deg_cent.csv')
+betw_centr_df = pd.read_csv('top_betw_centralities.csv')
+
+with st.container():
+    st.header('So who is really the most central character?')
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        col1.subheader('Degree centrality')
+        logic.create_centrality_graphs(deg_centrality_df[:20])
+    with col2:
+
+        col2.subheader('Betweenness Centrality')
+        logic.create_centrality_graphs_v2(betw_centr_df[:20])
+
