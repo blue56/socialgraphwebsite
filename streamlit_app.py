@@ -154,7 +154,7 @@ with st.container():
     
     st.markdown(f'Let\'s look at two interactive graphs of the Friends network. The first one is colored by gender - \
                   <span style="background-color:#03DAC6; color:black">male</span>\
-                  , <span style="background-color:#6200EE;">female</span>\
+                  , <span style="background-color:#6200EE; color:white">female</span>\
                   , or <span style="background-color:#FFF176; color:black">unknown</span>\
                   . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
 
@@ -162,11 +162,11 @@ with st.container():
 
     st.markdown(f'On the second graph the main characters are colored - \
                   <span style="background-color:#FFF580; color:black">Chandler</span>\
-                  , <span style="background-color:#FF4238;">Monica</span>\
+                  , <span style="background-color:#FF4238; color:white">Monica</span>\
                   , <span style="background-color:#FFDC00; color:black">Rachel</span>\
                   , <span style="background-color:#42A2D6; color:black">Phoebe</span>\
-                  , <span style="background-color:#00009E;">Ross</span>\
-                  , and <span style="background-color:#9A0006;">Joey</span>', unsafe_allow_html=True)
+                  , <span style="background-color:#00009E; color:white">Ross</span>\
+                  , and <span style="background-color:#9A0006; color:white">Joey</span>', unsafe_allow_html=True)
     
     pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
 

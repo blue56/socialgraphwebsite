@@ -273,7 +273,7 @@ def generatePyvisGraphGender(df_nodes, df_edges, G, GCC):
 
 def generate_bar_chart(df_lines_words):
     df_lines_words = df_lines_words[["Character", "no_sentences", "no_words"]]
-    df_lines_words = df_lines_words.loc[df_lines_words['no_sentences'] >= 93]
+    df_lines_words = df_lines_words.loc[df_lines_words['no_sentences'] > 93]
 
     return alt.Chart(df_lines_words).mark_bar(opacity=0.9).encode(
         x='no_sentences',
