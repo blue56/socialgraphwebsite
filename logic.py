@@ -185,7 +185,7 @@ def create_sentiment_graph(sentiment_df):
 
 def generatePyvisGraph(df_nodes, df_edges, G):
     # Create pyvis graph
-    g = net.Network(height='700px', width='1200px', notebook=True, heading='', bgcolor='#00000', font_color='white')
+    g = net.Network(height='700px', width='1200px', notebook=False, heading='', bgcolor='#00000', font_color='white')
     g.barnes_hut(gravity=-80000, central_gravity=0, overlap=1)
     g.set_edge_smooth('continuous')
 
@@ -228,7 +228,6 @@ def generatePyvisGraph(df_nodes, df_edges, G):
     for edge in list(G.edges()):
         a = edge[0]
         b = edge[1]
-        print(a)
         if ('Chandler' in a) or ('Chandler' in b):
             g.add_edge(a, b, color = "FFF580")
             edges_to_remove.append(edge)
@@ -250,5 +249,28 @@ def generatePyvisGraph(df_nodes, df_edges, G):
 
     # Add default colored edges to pyvis graph
     G.remove_edges_from(edges_to_remove)
+    g.add_edges(G.edges)
+    return g
+
+def generatePyvisGraphGender(df_nodes, df_edges, G, GCC):
+    # Create pyvis graph
+    g = net.Network(height='700px', width='1200px', notebook=False, heading='', bgcolor='#00000', font_color='white')
+    g.barnes_hut(gravity=-80000, central_gravity=0, overlap=1)
+    g.set_edge_smooth('continuous')
+
+    # Get df_names if existing in GCC
+    df_nodes = df_nodes[df_nodes.Name.isin(list(GCC.nodes))]
+
+    names = df_nodes['Name'].values
+    num_lines = 7 * np.log([1 if val == 0 else val for val in df_nodes['No_of_Lines'].values])
+    genders = df_nodes['Gender'].values
+
+    # Get node colors based on gender
+    node_colors = ['#03DAC6' if gender == 'male' else '#6200EE' if gender == 'female' else '#FFF176' for gender in genders]
+    
+    # Add nodes with color based on gender and size based on number of lines
+    for i in range(len(names)):
+        g.add_node(names[i], label=names[i], color=node_colors[i], size=num_lines[i])
+
     g.add_edges(G.edges)
     return g

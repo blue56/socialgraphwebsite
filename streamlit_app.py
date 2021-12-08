@@ -21,7 +21,7 @@ import os
 from fa2 import ForceAtlas2
 from matplotlib.pyplot import figure
 from stvis import pv_static
-st.set_page_config(page_title="My App", layout='wide')
+st.set_page_config(page_title="Friends • The Network",layout='wide')
 
 
 
@@ -38,6 +38,8 @@ df_characters = pd.read_csv(characters_path)
 
 path_nodes = "nodes.csv"
 df_nodes = pd.read_csv(path_nodes)
+path_nodes_attr = "nodes_with_attributes.csv"
+df_nodes_attr = pd.read_csv(path_nodes_attr)
 path_edges = "edges.csv"
 df_edges = pd.read_csv(path_edges)
 ##################################################################################CREATE NETWORK#################################################################################################################
@@ -123,13 +125,13 @@ st.header('Word cloud drawings')
 
 
 st.write('But what is happing at the center of Friends? They are of course talking a lot in the Central Perk café.')
-st.write('To be precise, the Friends serie has 46657 story lines in total. Each of the 6 friends has there distinct ways of talking.')
+st.write('To be precise, the Friends serie has 46657 story lines in total. Each of the 6 friends has their distinct way of talking.')
 st.write('Below you are able to choose your favorite Friends character and see what words makes that character special.')
 
 
 with st.container():
 
-    ch_selected = st.selectbox('See the wordcloud for:', list(df_wordlist.Name.unique()))
+    ch_selected = st.selectbox('See the word cloud for:', list(df_wordlist.Name.unique()))
 
     st.pyplot(logic.generate_wordcloud(ch_selected,df_wordlist))
 
@@ -152,10 +154,10 @@ They say "dude" 62 times in total.
 ###################################################################################################### PLOT NETWORK #########################################################################################################
 with st.container():
 
-    st.header('Graph drawing')
+    st.header('Interactive Friends Graphs')
     # st.pyplot(logic.generate_graph(GCC))
+    pv_static(logic.generatePyvisGraphGender(df_nodes_attr, df_edges, G, GCC))
     pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
-
 
 """
 
