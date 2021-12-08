@@ -46,19 +46,14 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-
         col1.header('Welcome to the project website for the course Social graphs and interactions (02805)')
         col1.subheader('Made by Mihaela, Viktor, and Jacob')
 
     with col2:
+        col2.header('Network Visualization of the Friends Universe')
         st.pyplot(logic.generate_graph(GCC))
-        st.markdown(
-            'In the visualization above we can observe the Friends Universe in the shape of a network. The nodes representing the six main characters have been colored with distinct colors. '
-            'Moreover, the node size has been adjusted to be proportional with the degree, while the edges have inherited the color of the starting node.')
 
 with st.container():
-
-
     # === Video
     st.header('Introduction video - The One With the Social Graphs')
     #st.video('https://youtu.be/_qKCQAbOt_8')
@@ -92,7 +87,7 @@ with st.container():
 
     st.header('Basic stats')
 
-    numberOfNodes = len(G.nodes())
+    numberOfNodes = 423
     numberOfEdges = len(G.edges())
 
     t = "The network has " + str(numberOfNodes) + " nodes and " + str(numberOfEdges) + " edges."
@@ -254,10 +249,6 @@ with st.container():
 Let’s go back to Phoebe and her relationships. One of the best relationship in the Friends universe is Phoebe and Mike’s. To be more precise, Mike has the most positive sentiment when talking about Phoebe. This can be seen in the Sentiment for a pair of characters. They have a sentiment score of 0.17 - far above the average.
 
 But wait a bit... Mike was dating Precious after he broke up with Phoebe. That must have been a challenge. Precious has the most negative sentiment of all characters in Friends. Ouch! Mike must have been on a roller coaster ride.
-
-Speaking about roller coaster rides… The Friends viewers have also been on a bit of a ride.
-The episode with the lowest overall sentiment was Episode 1 in Season 4: _The one with the Jellyfish_, as you probably remember.
-The crazy thing is that in the same season we have one of the highest sentiment scores of an episode - Episode 5: _The one with Joey's new girlfriend_.
 """
 
 ###################################################################################################### PLOT NETWORK #########################################################################################################
@@ -275,6 +266,12 @@ with st.container():
     with col2:
         col2.header('Sentiment for each director')
         logic.create_sentiment_graph(director_sentiment)
+    
+    """
+    Speaking about roller coaster rides… The Friends viewers have also been on a bit of a ride.
+    The episode with the lowest overall sentiment was Episode 1 in Season 4: _The one with the Jellyfish_, as you probably remember.
+    The crazy thing is that in the same season we have one of the highest sentiment scores of an episode - Episode 5: _The one with Joey's new girlfriend_.
+    """
 
     st.header('Evolution of sentiment in time')
     logic.create_sentiment_graph(episodes_sentiment)
