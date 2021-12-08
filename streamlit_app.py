@@ -26,7 +26,7 @@ st.set_page_config(page_title="Friends • The Network",layout='wide')
 # ===
 
 st.header('Welcome to the project website for the course Social graphs and interactions (02805)')
-st.subheader('Made by Mihaela, Viktor and Jacob')
+st.subheader('Made by Mihaela, Viktor, and Jacob')
 
 ################################################################## Read characters from CSV###################################################################################################################
 characters_path = "nodes.csv"
@@ -48,19 +48,18 @@ with st.container():
 
 
     # === Video
-    #st.header('Introduction video')
+    st.header('Introduction video - The One With the Social Graphs')
     #st.video('https://youtu.be/_qKCQAbOt_8')
 
-    #col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-    #with col1:
-        st.header('Introduction Video')
+    with col1:
         st.video('https://youtu.be/_qKCQAbOt_8')
-        st.balloons()
+    st.balloons()
 
-    #with col2:
-     #   col2.header('The Friends Universe')
-     #   st.pyplot(logic.generate_graph(GCC))
+    # with col2:
+    #    col2.header('The One With the Social Graphs')
+    #    st.pyplot(logic.generate_graph(GCC))
 
 ###################################################################################### Basic stats###############################################################################################################
 
