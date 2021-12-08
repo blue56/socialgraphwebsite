@@ -298,13 +298,12 @@ def generate_bar_chart_sentences(df_lines_words,bool):
     if bool:
 
         df= df_lines_words[ (df_lines_words['Character'] != 'Rachel') & (df_lines_words['Character'] != 'Ross') & (df_lines_words['Character'] != 'Monica')& (df_lines_words['Character'] != 'Joey') & (df_lines_words['Character'] != 'Chandler' )& (df_lines_words['Character'] != 'Phoebe')].copy()
-        fig = px.line(df, x=df.columns[1],y= df.columns[2])
+        fig = px.scatter(df, x=df.columns[1],y= df.columns[2])
         #fig.update_layout(barmode='group', xaxis_tickangle=-45)
     else:
         df= df_lines_words[ (df_lines_words['Character'] == 'Rachel') | (df_lines_words['Character'] == 'Ross') | (df_lines_words['Character'] == 'Monica') | (df_lines_words['Character'] == 'Joey') | (df_lines_words['Character'] == 'Chandler' ) | (df_lines_words['Character'] == 'Phoebe')].copy()
-        fig = px.line( df,x=df.columns[1], y = df.columns[2])
+        fig = px.scatter( df,x=df.columns[1], y = df.columns[2])
         #fig.update_layout(barmode='group', xaxis_tickangle=-45)
-
     return streamlit.plotly_chart(fig, use_container_width=True)
 
 def generate_bar_chart_words(df_lines_words,bool):
@@ -313,13 +312,12 @@ def generate_bar_chart_words(df_lines_words,bool):
     if bool:
 
         df= df_lines_words[ (df_lines_words['Character'] != 'Rachel') & (df_lines_words['Character'] != 'Ross') & (df_lines_words['Character'] != 'Monica')& (df_lines_words['Character'] != 'Joey') & (df_lines_words['Character'] != 'Chandler' )& (df_lines_words['Character'] != 'Phoebe')].copy()
-        fig = px.line(df, x=df.columns[1],y= df.columns[3])
+        fig = px.scatter(df, x=df.columns[1],y= df.columns[3])
         #fig.update_layout(barmode='group', xaxis_tickangle=-45)
     else:
         df= df_lines_words[ (df_lines_words['Character'] == 'Rachel') | (df_lines_words['Character'] == 'Ross') | (df_lines_words['Character'] == 'Monica') | (df_lines_words['Character'] == 'Joey') | (df_lines_words['Character'] == 'Chandler' )| (df_lines_words['Character'] == 'Phoebe')].copy()
-        fig = px.line( df,x=df.columns[1], y = df.columns[3])
+        fig = px.scatter(df,x=df.columns[1], y = df.columns[3])
         #fig.update_layout(barmode='group', xaxis_tickangle=-45)
-
     return streamlit.plotly_chart(fig, use_container_width=True)
 
 '''

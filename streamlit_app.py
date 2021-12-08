@@ -69,7 +69,6 @@ with st.container():
 
     with col1:
         st.video('https://youtu.be/_qKCQAbOt_8')
-    st.balloons()
 
     # with col2:
     #    col2.header('The One With the Social Graphs')
@@ -153,7 +152,7 @@ with st.container():
             """
         if (ch_selected == "Chandler"):
             """
-            Why does Chandler say **_moustache_** so often? Maybe he is still a little jealous of Richard - Monica's only other big love... and his moustache.
+            Why does Chandler say **_moustache_** so often? Maybe he is still a little jealous of Richard - Monica's only other big love... and his **_moustache_**.
 
             We also see the words **_crystal duck_** from Season 1 Episode 24: _The One Where Rachel Finds Out_.
             
@@ -204,11 +203,25 @@ with st.container():
             """
         elif (ch_selected == "Ross"):
             """
-            Ross text
+            Ross dressed as **_The Holiday Armadillo_** for **_Hanukkah_** when he told his son Ben the story about the **_Maccabees_**.
+
+            As hilarious as it all is, these words show the sweet side of Ross.
+            He is not just a paleontologist - he is a caring father and friend, who cherishes his Jewish cultural heritage.
+
+            Needless to say, Ross's true love - **_Rach_**, is arguably his most used word.
+            He must have said that many times when they were, in fact, ON A BREAK.
             """
         elif (ch_selected == "Rachel"):
             """
-            Rachel text
+            Rachel is a dynamic person and does not stick to using the same words over and over again.
+
+            Although... her love for fashion is clearly visible from her word cloud.
+            
+            She adores **_Gucci_** and the occasional **_regatta gala_**.
+                        
+            Rachel is also the type of person, who can change people's hearts, no matter if it's her boyfriend Joshua or her boss Joanna.
+            
+            Just like she did with Gavin - the guy who wanted to take her job, but then saw how great Rachel is and made it possible for Rachel to give her presentation.
             """
 
 # Gigant connected
@@ -226,7 +239,6 @@ with st.container():
                   . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
     st.markdown('It is know that Friends has an equal number of male and female characters - if we don\'t count the characters whose gender is unknown. The gender distribution is reflected in the graph as well')
     pv_static(logic.generatePyvisGraphGender(df_nodes_attr, df_edges, G, GCC))
-    pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
 
     st.markdown(f'On the second graph the main characters are colored - \
                   <span style="background-color:#FFF580; color:black">Chandler</span>\
@@ -238,6 +250,7 @@ with st.container():
     st.markdown('Here we have decided to focus again on the main characters and their relationship. Therefore, we have coded the edges to take on the color of their starting node.Can you guess which'
                 'main character has formed the most connections? We\'ll dig into that later.')
 
+    pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
 
 """
 Let’s go back to Phoebe and her relationships. One of the best relationship in the Friends universe is Phoebe and Mike’s. To be more precise, Mike has the most positive sentiment when talking about Phoebe. This can be seen in the Sentiment for a pair of characters. They have a sentiment score of 0.17 - far above the average.
@@ -281,9 +294,9 @@ deg_centrality_df = pd.read_csv('top_deg_cent.csv')
 betw_centr_df = pd.read_csv('top_betw_centralities.csv')
 
 with st.container():
-    st.header('So who is really the most central character?')
-    st.markdown('Well according to degree centrality aka who has the highest shares of connections in the network it is Ross!')
-    st.markdown('And according to betweenness centrality is...Ross again! Unbelievable. Well we do know that Ross has a rich professional circle as well.')
+    st.header('So, who is really the most central character?')
+    st.markdown('Well, according to degree centrality aka who has the highest shares of connections in the network, it is Ross!')
+    st.markdown('And according to betweenness centrality it is... Ross again! Unbelievable. Well, we do know that Ross has a rich professional circle as well.')
     col1, col2 = st.columns(2)
 
     with col1:
@@ -302,25 +315,23 @@ df_lines_words = pd.read_csv("lines_and_words_agg.csv")
 with st.container():
 
     st.markdown(
-        'Now let\'s look at who is the character with the most lines ever said in the show. That appears to be Rachel with over 10K sentences and 50K words! Well that can tell us a bit about'
-        'who the writers were favoring, does it not ?')
+        'Now let\'s look at who is the character with the most lines ever said in the show. That appears to be Rachel with over 10K sentences and 50K words! Well, that tells us a bit about '
+        'who the writers were favoring, doesn\'t it?')
 
     with col1:
-        col1.subheader('Number of lines - spoken in the show')
+        col1.subheader('Number of lines spoken in the show')
         option = col1.selectbox('Show me the number of lines for:', ['Secondary Characters', 'Main Characters'])
         if option == 'Secondary Characters':
             logic.generate_bar_chart_sentences(df_lines_words,True)
         elif option == 'Main Characters':
             logic.generate_bar_chart_sentences(df_lines_words, False)
 
-
     with col2:
-        col2.subheader('Number of sentences spoken in the show')
+        col2.subheader('Number of words spoken in the show')
         option = col2.selectbox('Show me the number of sentences for:', ['Secondary Characters', 'Main Characters'])
         if option == 'Secondary Characters':
             logic.generate_bar_chart_words(df_lines_words, True)
         elif option == 'Main Characters':
             logic.generate_bar_chart_words(df_lines_words, False)
 
-st.markdown('We hope that this visual analysis of the Friends show was insightful! :) ')
-st.balloons()
+st.markdown('We hope that you gained new inshights into the Friends Universe :) ')
