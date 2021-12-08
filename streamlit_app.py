@@ -23,14 +23,10 @@ from matplotlib.pyplot import figure
 from stvis import pv_static
 st.set_page_config(page_title="Friends • The Network",layout='wide')
 
-
-
-
 # ===
 
 st.header('Welcome to the project website for the course Social graphs and interactions (02805)')
 st.subheader('Made by Mihaela-Elena Nistor, Viktor Anzhelev Tsanev and Jacob Kofod')
-
 
 ################################################################## Read characters from CSV###################################################################################################################
 characters_path = "nodes.csv"
@@ -207,3 +203,7 @@ characters_sentiment = pd.read_csv('characters_sentiment.csv')
 
 with st.container():
     logic.create_sentiment_graph(characters_sentiment)
+
+df_lines_words = pd.read_csv("lines_and_words_agg.csv")
+with st.container():
+    st.altair_chart(logic.generate_bar_chart(df_lines_words), use_container_width=True)
