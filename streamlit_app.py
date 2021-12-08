@@ -20,12 +20,11 @@ import community as com
 import os
 from fa2 import ForceAtlas2
 from matplotlib.pyplot import figure
-
+from stvis import pv_static
 st.set_page_config(page_title="My App", layout='wide')
 
-from stvis import pv_static
 
-st.set_page_config(page_title="Friends - The Network",layout='wide')
+
 
 # ===
 
