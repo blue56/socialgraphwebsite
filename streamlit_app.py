@@ -23,11 +23,7 @@ from matplotlib.pyplot import figure
 from stvis import pv_static
 st.set_page_config(page_title="Friends • The Network",layout='wide')
 
-# ===
-
-st.header('Welcome to the project website for the course Social graphs and interactions (02805)')
-st.subheader('Made by Mihaela, Viktor, and Jacob')
-
+st.balloons()
 ################################################################## Read characters from CSV###################################################################################################################
 characters_path = "nodes.csv"
 df_characters = pd.read_csv(characters_path)
@@ -39,10 +35,28 @@ df_nodes_attr = pd.read_csv(path_nodes_attr)
 path_edges = "edges.csv"
 df_edges = pd.read_csv(path_edges)
 ##################################################################################CREATE NETWORK#################################################################################################################
+
 G = logic.generate_network(df_nodes, df_edges)
-# Gigant connected
+# Giant connected
 largest_cc = max(nx.connected_components(G), key=len)
 GCC = G.subgraph(largest_cc)
+
+
+with st.container():
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        col1.header('Welcome to the project website for the course Social graphs and interactions (02805)')
+        col1.subheader('Made by Mihaela, Viktor, and Jacob')
+
+    with col2:
+        st.pyplot(logic.generate_graph(GCC))
+        st.markdown(
+            'In the visualization above we can observe the Friends Universe in the shape of a network. The nodes representing the main six character have been colored with distinct colors. '
+            'Moreover the node size has been adjusted to be proportional with the degree while the edges have inherited the color of the starting node')
+
+
 
 with st.container():
 
@@ -75,10 +89,6 @@ First of all, we need to have the data available. We have done the hard work for
 Let's take a look at the character network. It consists of 424 characters that are connected by 2183 edges. Each edge represents that the character has some kind of a relationship to the other character.
 
 """
-st.pyplot(logic.generate_graph(GCC))
-
-st.markdown('In the visualization above we can observe the Friends Universe in the shape of a network. The nodes representing the main six character have been colored with distinct colors. '
-            'Moreover the node size has been adjusted to be proportional with the degree while the edges have inherited the color of the starting node')
 
 with st.container():
 
@@ -90,7 +100,8 @@ with st.container():
 
     t = "The network has " + str(numberOfNodes) + " nodes and " + str(numberOfEdges) + " edges."
     st.markdown(t)
-
+    t = 'There are 194 female characters and 194 male characters in the show. For the rest of 35 characters the gender is unknown. '
+    st.markdown(t)
 """
 We can easily identify the 6 main characters just by looking at the network degree distribution.
 The 6 friends have the highest node degrees.
@@ -123,7 +134,7 @@ df_wordlist = pd.read_csv(wordlistPath)
 st.header('Word cloud drawings')
 
 
-st.write('But what is happing at the center of Friends? They are of course talking a lot in the Central Perk café.')
+st.write('But what is happeing at the center of Friends? They are of course talking a lot in the Central Perk café.')
 st.write('To be precise, the Friends series has 46657 story lines in total. Each of the 6 friends has their distinct way of talking.')
 st.write('Below you can choose your favorite Friends character and see what words make them special.')
 
@@ -213,7 +224,7 @@ with st.container():
                   , <span style="background-color:#6200EE; color:white">female</span>\
                   , or <span style="background-color:#FFF176; color:black">unknown</span>\
                   . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
-
+    st.markdown('It is know that Friends has an equal number of male and female characters - if we don\'t count the characters whose gender is unknown. The gender distribution is reflected in the graph as well')
     pv_static(logic.generatePyvisGraphGender(df_nodes_attr, df_edges, G, GCC))
     pv_static(logic.generatePyvisGraph(df_nodes, df_edges, G))
 
@@ -224,9 +235,12 @@ with st.container():
                   , <span style="background-color:#42A2D6; color:black">Phoebe</span>\
                   , <span style="background-color:#00009E; color:white">Ross</span>\
                   , and <span style="background-color:#9A0006; color:white">Joey</span>', unsafe_allow_html=True)
+    st.markdown('Here we have decided to focus again on the main characters and their relationship. Therefore, we have coded the edges to take on the color of their starting node.Can you guess which'
+                'main character has formed the most connections? We\'ll dig into that later.')
+
 
 """
-Let’s go back to Phoebe and her relationships. It seems that the best relationship in the Friends universe is Phoebe and Mike’s. To be more precise, Mike has the most positive sentiment when talking about Phoebe. This can be seen in the Sentiment for a pair of characters. They have a sentiment score of 0.17 - far above the average.
+Let’s go back to Phoebe and her relationships. One of the best relationship in the Friends universe is Phoebe and Mike’s. To be more precise, Mike has the most positive sentiment when talking about Phoebe. This can be seen in the Sentiment for a pair of characters. They have a sentiment score of 0.17 - far above the average.
 
 But wait a bit... Mike was dating Precious after he broke up with Phoebe. That must have been a challenge. Precious has the most negative sentiment of all characters in Friends. Ouch! Mike must have been on a roller coaster ride.
 
@@ -268,6 +282,8 @@ betw_centr_df = pd.read_csv('top_betw_centralities.csv')
 
 with st.container():
     st.header('So who is really the most central character?')
+    st.markdown('Well according to degree centrality aka who has the highest shares of connections in the network it is Ross!')
+    st.markdown('And according to betweenness centrality is...Ross again! Unbelievable. Well we do know that Ross has a rich professional circle as well.')
     col1, col2 = st.columns(2)
 
     with col1:
@@ -281,5 +297,30 @@ with st.container():
 
 
 df_lines_words = pd.read_csv("lines_and_words_agg.csv")
+
+
 with st.container():
-    st.altair_chart(logic.generate_bar_chart(df_lines_words), use_container_width=True)
+
+    st.markdown(
+        'Now let\'s look at who is the character with the most lines ever said in the show. That appears to be Rachel with over 10K sentences and 50K words! Well that can tell us a bit about'
+        'who the writers were favoring, does it not ?')
+
+    with col1:
+        col1.subheader('Number of lines - spoken in the show')
+        option = col1.selectbox('Show me the number of lines for:', ['Secondary Characters', 'Main Characters'])
+        if option == 'Secondary Characters':
+            logic.generate_bar_chart_sentences(df_lines_words,True)
+        elif option == 'Main Characters':
+            logic.generate_bar_chart_sentences(df_lines_words, False)
+
+
+    with col2:
+        col2.subheader('Number of sentences spoken in the show')
+        option = col2.selectbox('Show me the number of sentences for:', ['Secondary Characters', 'Main Characters'])
+        if option == 'Secondary Characters':
+            logic.generate_bar_chart_words(df_lines_words, True)
+        elif option == 'Main Characters':
+            logic.generate_bar_chart_words(df_lines_words, False)
+
+st.markdown('We hope that this visual analysis of the Friends show was insightful! :) ')
+st.balloons()

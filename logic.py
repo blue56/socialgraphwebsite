@@ -116,9 +116,9 @@ def generate_graph(GCC):
 
     forceatlas2 = ForceAtlas2(outboundAttractionDistribution=False,edgeWeightInfluence=1.5,jitterTolerance=0.1,
     barnesHutOptimize=True,barnesHutTheta=1,scalingRatio=1.,strongGravityMode=False,gravity=0.1,verbose=True)
-    gf = figure(figsize=(40, 40), dpi=320)
+    gf = figure(figsize=(20, 20), dpi=400)
 
-    ax = gf.add_subplot(1,1,1)
+    ax = gf.add_subplot(1, 1, 1)
     for label in ColorLegend:
         legend_color = ""
         if label == "Ross":
@@ -156,6 +156,11 @@ def create_sentiment_graph(sentiment_df):
 
 
     elif sentiment_df.columns[1] == 'Episodes':
+
+
+        #sentiment_df['colors'] = ''
+        #sentiment_df['colors'] = np.where(sentiment_df['Sentiment'] >= 0.10, 'highly positive', 'positive')
+
         fig = px.line(sentiment_df, x=sentiment_df.columns[1], y=sentiment_df.columns[2])
 
     elif sentiment_df.columns[1] == 'Character':
@@ -285,12 +290,72 @@ def create_centrality_graphs_v2(df_centrality):
 
     return streamlit.plotly_chart(fig, use_container_width=True)
 
-def generate_bar_chart(df_lines_words):
-    df_lines_words = df_lines_words[["Character", "no_sentences", "no_words"]]
-    df_lines_words = df_lines_words.loc[df_lines_words['no_sentences'] > 93]
+import plotly.graph_objects as go
 
-    return alt.Chart(df_lines_words).mark_bar(opacity=0.9).encode(
-        x='no_sentences',
-        y=alt.Y('Character', sort='-x'),
-        tooltip=['Character', 'no_sentences', 'no_words']
-    )
+def generate_bar_chart_sentences(df_lines_words,bool):
+
+    df_lines_words = df_lines_words[['Character','no_sentences','no_words']].reset_index()
+    if bool:
+
+        df= df_lines_words[ (df_lines_words['Character'] != 'Rachel') & (df_lines_words['Character'] != 'Ross') & (df_lines_words['Character'] != 'Monica')& (df_lines_words['Character'] != 'Joey') & (df_lines_words['Character'] != 'Chandler' )& (df_lines_words['Character'] != 'Phoebe')].copy()
+        fig = px.line(df, x=df.columns[1],y= df.columns[2])
+        #fig.update_layout(barmode='group', xaxis_tickangle=-45)
+    else:
+        df= df_lines_words[ (df_lines_words['Character'] == 'Rachel') | (df_lines_words['Character'] == 'Ross') | (df_lines_words['Character'] == 'Monica') | (df_lines_words['Character'] == 'Joey') | (df_lines_words['Character'] == 'Chandler' ) | (df_lines_words['Character'] == 'Phoebe')].copy()
+        fig = px.line( df,x=df.columns[1], y = df.columns[2])
+        #fig.update_layout(barmode='group', xaxis_tickangle=-45)
+
+    return streamlit.plotly_chart(fig, use_container_width=True)
+
+def generate_bar_chart_words(df_lines_words,bool):
+
+    df_lines_words = df_lines_words[['Character','no_sentences','no_words']].reset_index()
+    if bool:
+
+        df= df_lines_words[ (df_lines_words['Character'] != 'Rachel') & (df_lines_words['Character'] != 'Ross') & (df_lines_words['Character'] != 'Monica')& (df_lines_words['Character'] != 'Joey') & (df_lines_words['Character'] != 'Chandler' )& (df_lines_words['Character'] != 'Phoebe')].copy()
+        fig = px.line(df, x=df.columns[1],y= df.columns[3])
+        #fig.update_layout(barmode='group', xaxis_tickangle=-45)
+    else:
+        df= df_lines_words[ (df_lines_words['Character'] == 'Rachel') | (df_lines_words['Character'] == 'Ross') | (df_lines_words['Character'] == 'Monica') | (df_lines_words['Character'] == 'Joey') | (df_lines_words['Character'] == 'Chandler' )| (df_lines_words['Character'] == 'Phoebe')].copy()
+        fig = px.line( df,x=df.columns[1], y = df.columns[3])
+        #fig.update_layout(barmode='group', xaxis_tickangle=-45)
+
+    return streamlit.plotly_chart(fig, use_container_width=True)
+
+'''
+    def generate_bar_chart_words(df_lines_words, bool):
+
+
+        if bool:
+
+            df_lines_words = df_lines_words[df_lines_words['Character'] != 'Rachel|Ross|Phoebe|Chandler|Monica|Joey']
+            fig.add_trace(
+                go.Bar(x=list(df_lines_words['Character']), y=list(df_lines_words['no_sentences']), name='#Sentences',
+                       marker_color='indianred'))
+            fig.update_layout(barmode='group', xaxis_tickangle=-45)
+        else:
+            df_lines_words = df_lines_words[df_lines_words['Character'] == 'Rachel|Ross|Phoebe|Chandler|Monica|Joey']
+            fig.add_trace(
+                go.Bar(x=list(df_lines_words['Character']), y=list(df_lines_words['no_sentences']), name='#Sentences',
+                       marker_color='indianred'))
+            fig.update_layout(barmode='group', xaxis_tickangle=-45)
+
+        return streamlit.plotly_chart(fig, use_container_width=True)
+
+'''
+
+
+
+#fig.add_trace(go.Bar(x=list(df_lines_words['Character']), y=list(df_lines_words['no_words']), name='#Words', marker_color='lightsalmon'))
+
+
+
+'''
+df_lines_words = df_lines_words[["Character", "no_sentences", "no_words"]]
+df_lines_words = df_lines_words.loc[df_lines_words['no_sentences'] > 93]
+
+return alt.Chart(df_lines_words).mark_bar(opacity=0.9).encode(
+    x='no_sentences',
+    y=alt.Y('Character', sort='-x'),
+    tooltip=['Character', 'no_sentences', 'no_words']
+) '''
