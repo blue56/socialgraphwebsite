@@ -7,7 +7,10 @@ import streamlit
 from fa2 import ForceAtlas2
 from matplotlib import pyplot as plt
 from matplotlib.pyplot import figure
+from plotly.graph_objs import Scatter, Figure
 from wordcloud import WordCloud
+import plotly.graph_objects as go
+
 
 
 def generate_network(df_nodes,df_edges):
@@ -26,25 +29,15 @@ def generate_network(df_nodes,df_edges):
 
 def generate_degree_distribution_plot(G):
 
-
     # get all sentiment values
-    degrees = [i[1] for i in list(G.degree)]
+    degrees = pd.DataFrame()
+    degrees['degree'] = [i[1] for i in list(G.degree)]
     # get hist values and edges
-    hist, bin_edges = np.histogram(degrees)
+    #hist, bin_edges = np.histogram(degrees)
 
-    fig = figure(figsize=(12, 10), dpi=80)
-    n, bins, patches = plt.hist(x=degrees, bins='auto', color='#0504aa',
-                                alpha=0.7, rwidth=0.85)
-    plt.grid(axis='y', alpha=0.75)
-    plt.xlabel('Degree', fontsize=15)
-    plt.ylabel('Frequency', fontsize=15)
-    plt.title('$\it{F}$•$\it{R}$•$\it{I}$•$\it{E}$•$\it{N}$•$\it{D}$•$\it{S}$ - Degree Distribution', fontsize=18)
-    maxfreq = n.max()
-    # Set a clean upper y-axis limit.
-    plt.xticks(np.arange(min(degrees), max(degrees) + 1, 10))
-    plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+    fig = px.histogram(degrees, x='degree')
+    return streamlit.plotly_chart(fig, use_container_width=True)
 
-    return fig
 
 def generate_wordcloud(champion,df_wordlist):
 
@@ -61,7 +54,7 @@ def generate_wordcloud(champion,df_wordlist):
     wordcloud.collocations = False
 
     # Display the generated image:
-    fig = plt.figure( figsize=(5,10))
+    fig = plt.figure( figsize=(5,5))
     plt.tight_layout(pad=0)
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
@@ -69,6 +62,10 @@ def generate_wordcloud(champion,df_wordlist):
     plt.show()
 
     return fig
+
+def generate_plotly_graph(df_nodes,links):
+
+    return 0
 
 
 def generate_graph(GCC):

@@ -20,14 +20,12 @@ import community as com
 import os
 from fa2 import ForceAtlas2
 from matplotlib.pyplot import figure
-st.set_page_config(page_title="My App",layout='wide')
+st.set_page_config(page_title="My App", layout='wide')
 # ===
 
-"""
-# Welcome to the project website for the course Social graphs and interactions (02805)
-# Made by Mihaela-Elena Nistor, Viktor Anzhelev Tsanev and Jacob Kofod
+st.header('Welcome to the project website for the course Social graphs and interactions (02805)')
+st.subheader('Made by Mihaela-Elena Nistor, Viktor Anzhelev Tsanev and Jacob Kofod')
 
-"""
 
 ################################################################## Read characters from CSV###################################################################################################################
 characters_path = "nodes.csv"
@@ -39,17 +37,32 @@ path_edges = "edges.csv"
 df_edges = pd.read_csv(path_edges)
 ##################################################################################CREATE NETWORK#################################################################################################################
 G = logic.generate_network(df_nodes, df_edges)
+# Gigant connected
+largest_cc = max(nx.connected_components(G), key=len)
+GCC = G.subgraph(largest_cc)
+
 with st.container():
 
+
     # === Video
-    st.header('Introduction video')
-    st.video('https://youtu.be/_qKCQAbOt_8')
+    #st.header('Introduction video')
+    #st.video('https://youtu.be/_qKCQAbOt_8')
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        col1.header('Introduction Video')
+        st.video('https://youtu.be/_qKCQAbOt_8')
+
+    with col2:
+        col2.header('Friends Universe')
+        st.pyplot(logic.generate_graph(GCC))
 
 ###################################################################################### Basic stats###############################################################################################################
 
-"""
-## Introduction
 
+st.header('Introduction')
+"""
 Friends is all about relationships, but what is actually happening at the Central Perk? What  are the friends talking about? Who does actually have the best relationship in Friends? Let's start to dig into the Friends network and lets see what we can find from a data perspective.
 
 First of all we need to have the data available. We have done the hard work for you, so this website has all the needed information avaliable. However if you wish to jump into the data lake yourself then you can find the details here:
@@ -84,7 +97,14 @@ That is expectable for something that is human made. The statistics would look d
 with st.container():
 
     st.header('Degree distributions')
-    st.pyplot(logic.generate_degree_distribution_plot(G))
+    logic.generate_degree_distribution_plot(G)
+
+##################################################################### PLOTLY PLOT #####################################################################################################################################
+friends_links = pd.read_csv('friends_links.csv')
+with st.container():
+
+    st.header('Degree distributions')
+    logic.generate_plotly_graph(df_nodes,friends_links)
 
 
 ##############################################################################WORDCLOUDS ################################################################################################################################
@@ -95,19 +115,16 @@ df_wordlist = pd.read_csv(wordlistPath)
 
 st.header('Word cloud drawings')
 
-"""
 
-But what is happing at the center of Friends? They are of course talking alot in the Central Perk café.
 
-To be precise, the Friends serie has 46657 story lines in total. Each of the 6 friends
-has there distinct ways of talking. Below you are able to choose your favorite Friends character
-and see what words makes that character special.
+st.write('But what is happing at the center of Friends? They are of course talking a lot in the Central Perk café.')
+st.write('To be precise, the Friends serie has 46657 story lines in total. Each of the 6 friends has there distinct ways of talking.')
+st.write('Below you are able to choose your favorite Friends character and see what words makes that character special.')
 
-"""
 
 with st.container():
 
-    ch_selected = st.selectbox('I want to see the wordcloud for:', list(df_wordlist.Name.unique()))
+    ch_selected = st.selectbox('See the wordcloud for:', list(df_wordlist.Name.unique()))
 
     st.pyplot(logic.generate_wordcloud(ch_selected,df_wordlist))
 
