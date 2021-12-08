@@ -9,14 +9,10 @@ from matplotlib import pyplot as plt
 from matplotlib.pyplot import figure
 from plotly.graph_objs import Scatter, Figure
 from wordcloud import WordCloud
-
 import plotly.graph_objects as go
-
-
-
 from pyvis import network as net
 from pyvis import options
-
+import altair as alt
 
 def generate_network(df_nodes,df_edges):
 
@@ -272,6 +268,7 @@ def generatePyvisGraphGender(df_nodes, df_edges, G, GCC):
     g.add_edges(G.edges)
     return g
 
+<<<<<<< HEAD
 import plotly.graph_objects as go
 def create_centrality_graphs(df_centrality):
 
@@ -287,3 +284,14 @@ def create_centrality_graphs_v2(df_centrality):
     fig = go.Figure(data=[go.Bar(x=list(df_centrality['Character']), y=list(df_centrality['Value']),marker_color=colors)])
 
     return streamlit.plotly_chart(fig, use_container_width=True)
+=======
+def generate_bar_chart(df_lines_words):
+    df_lines_words = df_lines_words[["Character", "no_sentences", "no_words"]]
+    df_lines_words = df_lines_words.loc[df_lines_words['no_sentences'] > 93]
+
+    return alt.Chart(df_lines_words).mark_bar(opacity=0.9).encode(
+        x='no_sentences',
+        y=alt.Y('Character', sort='-x'),
+        tooltip=['Character', 'no_sentences', 'no_words']
+    )
+>>>>>>> fd5187cfd9fb28d704964e5b07d078adee9db8f7

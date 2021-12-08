@@ -23,14 +23,10 @@ from matplotlib.pyplot import figure
 from stvis import pv_static
 st.set_page_config(page_title="Friends • The Network",layout='wide')
 
-
-
-
 # ===
 
 st.header('Welcome to the project website for the course Social graphs and interactions (02805)')
 st.subheader('Made by Mihaela, Viktor and Jacob')
-
 
 ################################################################## Read characters from CSV###################################################################################################################
 characters_path = "nodes.csv"
@@ -160,10 +156,17 @@ with st.container():
     st.markdown("<h2 style='text-align: center; color: black;'>Interactive Visualizations of the Friends Universe</h2>", unsafe_allow_html=True)
 
     st.markdown(f'Let\'s look at two interactive graphs of the Friends network. The first one is colored by gender - \
+<<<<<<< HEAD
                       <span style="background-color:#03DAC6; color:black">male</span>\
                       , <span style="background-color:#6200EE;">female</span>\
                       , or <span style="background-color:#FFF176; color:black">unknown</span>\
                       . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
+=======
+                  <span style="background-color:#03DAC6; color:black">male</span>\
+                  , <span style="background-color:#6200EE; color:white">female</span>\
+                  , or <span style="background-color:#FFF176; color:black">unknown</span>\
+                  . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
+>>>>>>> fd5187cfd9fb28d704964e5b07d078adee9db8f7
 
     pv_static(logic.generatePyvisGraphGender(df_nodes_attr, df_edges, G, GCC))
 
@@ -173,11 +176,11 @@ with st.container():
 
     st.markdown(f'On the second graph the main characters are colored - \
                   <span style="background-color:#FFF580; color:black">Chandler</span>\
-                  , <span style="background-color:#FF4238;">Monica</span>\
+                  , <span style="background-color:#FF4238; color:white">Monica</span>\
                   , <span style="background-color:#FFDC00; color:black">Rachel</span>\
                   , <span style="background-color:#42A2D6; color:black">Phoebe</span>\
-                  , <span style="background-color:#00009E;">Ross</span>\
-                  , and <span style="background-color:#9A0006;">Joey</span>', unsafe_allow_html=True)
+                  , <span style="background-color:#00009E; color:white">Ross</span>\
+                  , and <span style="background-color:#9A0006; color:white">Joey</span>', unsafe_allow_html=True)
     
 
 
@@ -215,6 +218,7 @@ characters_sentiment = pd.read_csv('characters_sentiment.csv')
 with st.container():
     logic.create_sentiment_graph(characters_sentiment)
 
+<<<<<<< HEAD
 #######################################################################################Centrality###################################################################################################################
 characters_sentiment = pd.read_csv('characters_sentiment.csv')
 
@@ -234,3 +238,8 @@ with st.container():
         col2.subheader('Betweenness Centrality')
         logic.create_centrality_graphs_v2(betw_centr_df[:20])
 
+=======
+df_lines_words = pd.read_csv("lines_and_words_agg.csv")
+with st.container():
+    st.altair_chart(logic.generate_bar_chart(df_lines_words), use_container_width=True)
+>>>>>>> fd5187cfd9fb28d704964e5b07d078adee9db8f7
