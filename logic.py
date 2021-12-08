@@ -178,7 +178,7 @@ def create_sentiment_graph(sentiment_df):
 
 def generatePyvisGraph(df_nodes, df_edges, G):
     # Create pyvis graph
-    g = net.Network(height='700px', width='800px', notebook=False, heading='', bgcolor='#00000', font_color='white')
+    g = net.Network(height='700px', width='1200px', notebook=False, heading='', bgcolor='#00000', font_color='white')
     g.barnes_hut(gravity=-80000, central_gravity=0, overlap=1)
     g.set_edge_smooth('continuous')
 
@@ -294,4 +294,3 @@ def generate_bar_chart(df_lines_words):
         y=alt.Y('Character', sort='-x'),
         tooltip=['Character', 'no_sentences', 'no_words']
     )
-
