@@ -53,10 +53,8 @@ with st.container():
     with col2:
         st.pyplot(logic.generate_graph(GCC))
         st.markdown(
-            'In the visualization above we can observe the Friends Universe in the shape of a network. The nodes representing the main six character have been colored with distinct colors. '
-            'Moreover the node size has been adjusted to be proportional with the degree while the edges have inherited the color of the starting node')
-
-
+            'In the visualization above we can observe the Friends Universe in the shape of a network. The nodes representing the six main characters have been colored with distinct colors. '
+            'Moreover, the node size has been adjusted to be proportional with the degree, while the edges have inherited the color of the starting node.')
 
 with st.container():
 
