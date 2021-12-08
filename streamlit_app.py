@@ -156,17 +156,11 @@ with st.container():
     st.markdown("<h2 style='text-align: center; color: black;'>Interactive Visualizations of the Friends Universe</h2>", unsafe_allow_html=True)
 
     st.markdown(f'Let\'s look at two interactive graphs of the Friends network. The first one is colored by gender - \
-<<<<<<< HEAD
                       <span style="background-color:#03DAC6; color:black">male</span>\
                       , <span style="background-color:#6200EE;">female</span>\
                       , or <span style="background-color:#FFF176; color:black">unknown</span>\
                       . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
-=======
-                  <span style="background-color:#03DAC6; color:black">male</span>\
-                  , <span style="background-color:#6200EE; color:white">female</span>\
-                  , or <span style="background-color:#FFF176; color:black">unknown</span>\
-                  . The node size based on the character\'s number of lines.', unsafe_allow_html=True)
->>>>>>> fd5187cfd9fb28d704964e5b07d078adee9db8f7
+
 
     pv_static(logic.generatePyvisGraphGender(df_nodes_attr, df_edges, G, GCC))
 
@@ -218,7 +212,7 @@ characters_sentiment = pd.read_csv('characters_sentiment.csv')
 with st.container():
     logic.create_sentiment_graph(characters_sentiment)
 
-<<<<<<< HEAD
+
 #######################################################################################Centrality###################################################################################################################
 characters_sentiment = pd.read_csv('characters_sentiment.csv')
 
@@ -238,8 +232,7 @@ with st.container():
         col2.subheader('Betweenness Centrality')
         logic.create_centrality_graphs_v2(betw_centr_df[:20])
 
-=======
+
 df_lines_words = pd.read_csv("lines_and_words_agg.csv")
 with st.container():
     st.altair_chart(logic.generate_bar_chart(df_lines_words), use_container_width=True)
->>>>>>> fd5187cfd9fb28d704964e5b07d078adee9db8f7
